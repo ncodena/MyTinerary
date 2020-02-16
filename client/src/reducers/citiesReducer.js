@@ -7,7 +7,7 @@ const initialState = {
 }
 
 export default function( state = initialState, actions){
-    switch(actions.type) {
+    switch(action.type) {
         case REQUEST_CITIES:
             return {
                 ...state,
@@ -17,13 +17,13 @@ export default function( state = initialState, actions){
             return {
                 ...state,
                 loading: false,
-                cities: actions.cities,
+                cities: action.cities,
             }
         case FAIL_FETCH_CITIES:
             return {
                 ...state,
                 loading: false,
-                error: actions.error
+                error: action.error
             }
             default:
                 return state;

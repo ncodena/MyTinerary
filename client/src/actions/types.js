@@ -1,0 +1,3 @@
+export const REQUEST_CITIES = 'REQUEST_CITIES'
+export const FETCH_CITIES = 'FETCH_CITIES'
+export const FETCH_CITIES = 'FAIL_FETCH_CITIES'

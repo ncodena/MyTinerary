@@ -25,13 +25,13 @@ const Footer = () => {
 
     return (
         
-        <diV className="footer">
+        <div className="footer">
             <BottomNavigation value={value} onChange={handleChange} showLabels className={classes.root}>
                 <BottomNavigationAction label="Search by city" value="search" icon={<SearchIcon />} />
                 <BottomNavigationAction label="Your favorites" value="favorites" icon={<FavoriteIcon fontSize="small" />} />
                 <BottomNavigationAction label="Log out" value="logout" icon={<ExitToAppIcon />} />
             </BottomNavigation>
-        </diV>
+        </div>
         
 
     )

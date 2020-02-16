@@ -4,12 +4,13 @@ import axios from 'axios';
 export const fetchCities = () => dispatch => {
     dispatch(requestCities());
     axios
-        .get('/api/cities/')
+        .get('/api/cities')
         .then(res => 
             dispatch({
                 type: FETCH_CITIES,
                 cities: res.data,
             }))
+            
         .catch(error => {
             dispatch(failFetchCities(error.message))
         })
@@ -21,7 +22,7 @@ export const requestCities = () => {
     }
 }
 
-export const failFetchCities = () => {
+export const failFetchCities = (error) => {
     return {
         type: FAIL_FETCH_CITIES,
         error

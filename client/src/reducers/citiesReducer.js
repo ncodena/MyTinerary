@@ -6,7 +6,7 @@ const initialState = {
     error: ''
 }
 
-export default function( state = initialState, actions){
+export default function( state = initialState, action){
     switch(action.type) {
         case REQUEST_CITIES:
             return {

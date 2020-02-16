@@ -5,7 +5,7 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import SearchIcon from '@material-ui/icons/Search';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
+import "../style/Landing.css"
 
 const useStyles = makeStyles({
     root: {
@@ -25,11 +25,14 @@ const Footer = () => {
 
     return (
         
-        <BottomNavigation value={value} onChange={handleChange} showLabels className={classes.root}>
-            <BottomNavigationAction label="Search by city" value="search" icon={<SearchIcon />} />
-            <BottomNavigationAction label="Your favorites" value="favorites" icon={<FavoriteIcon fontSize="small" />} />
-            <BottomNavigationAction label="Log out" value="logout" icon={<ExitToAppIcon />} />
-        </BottomNavigation>
+        <diV className="footer">
+            <BottomNavigation value={value} onChange={handleChange} showLabels className={classes.root}>
+                <BottomNavigationAction label="Search by city" value="search" icon={<SearchIcon />} />
+                <BottomNavigationAction label="Your favorites" value="favorites" icon={<FavoriteIcon fontSize="small" />} />
+                <BottomNavigationAction label="Log out" value="logout" icon={<ExitToAppIcon />} />
+            </BottomNavigation>
+        </diV>
+        
 
     )
 }

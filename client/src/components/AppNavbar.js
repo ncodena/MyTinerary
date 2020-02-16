@@ -28,7 +28,7 @@ class AppNavbar extends Component {
             <div>
                 <Navbar color="light" light expand="sm">
                     <Container>
-                        <NavbarBrand href="/">MYTINERARY <i class="fas fa-globe-europe"></i></NavbarBrand>
+                        <NavbarBrand href="/">MYTINERARY <i className="fas fa-globe-europe"></i></NavbarBrand>
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>

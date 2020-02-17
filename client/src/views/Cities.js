@@ -10,9 +10,14 @@ class Cities extends Component {
     constructor (props){
         super(props);
     
+
         this.state={
             input:""
         };
+    }
+
+    filterData = (e) => {
+        this.setState({input: e.target.value})
     }
     
 
@@ -23,8 +28,7 @@ class Cities extends Component {
 
     filterCities = () => {
         console.log(this.props.cities)
-        return this.props.cities.filter(city=> city.name.toLowerCase().startsWith(this.state.input)) || 
-        (city => city.country.toLowerCase().startsWith(this.state.input))
+        return this.props.cities.filter(city=> city.name.toLowerCase().startsWith(this.state.input) || city.country.toLowerCase().startsWith(this.state.input)) 
     }
 
     getCitiesList = () => {
@@ -38,7 +42,6 @@ class Cities extends Component {
             citiesList = (
                 <div>NO RESULTS FOUND</div>
             )
-            
         }
         
         return citiesList
@@ -49,10 +52,8 @@ class Cities extends Component {
         if(!this.props.loading)
         return (
             <div>
-                <CitiesInput/>
+                <CitiesInput value={this.state.input} filterData={this.filterData} />
                 {this.getCitiesList()}
-                
-
                 
 
                 

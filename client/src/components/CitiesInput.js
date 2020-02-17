@@ -12,12 +12,17 @@ const useStyles = makeStyles(() =>
   }),
 );
 
-export default function CitiesInput() {
+export default function CitiesInput(props) {
   const classes = useStyles();
+
+  console.log("props: ",props)
+
+  const {filterData} = props
+
 
   return (
     <form className={classes.root} noValidate autoComplete="off">
-      <TextField id="standard-basic" label="Search a city" />
+      <TextField id="standard-basic" label="Search by city or country" onChange={filterData} />
     </form>
   );
 }

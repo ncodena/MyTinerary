@@ -49,9 +49,9 @@ class Cities extends Component {
         if(!this.props.loading)
         return (
             <div>
-                
-                {this.getCitiesList()}
                 <CitiesInput/>
+                {this.getCitiesList()}
+                
 
                 
 

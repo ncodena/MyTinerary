@@ -17,7 +17,7 @@ export default function CitiesInput() {
 
   return (
     <form className={classes.root} noValidate autoComplete="off">
-      <TextField id="standard-basic" label="Search for city" />
+      <TextField id="standard-basic" label="Search a city" />
     </form>
   );
 }

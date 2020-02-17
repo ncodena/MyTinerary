@@ -15,7 +15,7 @@ function App() {
         <Router>
           <div className="App">
             <AppNavbar/>
-            <Route path="/" component={Landing}/>
+            <Route path="/landing" component={Landing}/>
             <Route path="/cities" component={Cities}/>
             <Footer/>
           </div>

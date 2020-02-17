@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {fetchCities} from '../actions/citiesAction';
+import CitiesInput from '../components/CitiesInput';
+import '../style/Cities.css'
 import CityCard from '../components/CityCard';
 
 class Cities extends Component {
 
-    state = {
-        input: ""
+    constructor (props){
+        super(props);
+    
+        this.state={
+            input:""
+        };
     }
+    
 
     componentDidMount(){
         this.props.fetchCities()
@@ -16,11 +23,13 @@ class Cities extends Component {
 
     filterCities = () => {
         console.log(this.props.cities)
-        return this.props.cities.filter(city=> city.name.toLowerCase().startsWith(state.input)) ||
-        city.country.toLowerCase().startsWith(state.input)
+        return this.props.cities.filter(city=> city.name.toLowerCase().startsWith(this.state.input)) || 
+        (city => city.country.toLowerCase().startsWith(this.state.input))
     }
 
     getCitiesList = () => {
+      
+        
         let citiesList = this.filterCities().map(city => {
             return <CityCard city= {city} key={city._id}/>
         })
@@ -29,21 +38,27 @@ class Cities extends Component {
             citiesList = (
                 <div>NO RESULTS FOUND</div>
             )
+            
         }
+        
         return citiesList
+        
     }
 
     render() {
         if(!this.props.loading)
         return (
             <div>
-                {this.getCities()}
+                
+                {this.getCitiesList()}
+                <CitiesInput/>
 
                 
 
                 
             </div>
         )
+        return (<div>loading</div>)
     }
 }
 

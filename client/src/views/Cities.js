@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {fetchCities} from '../actions/citiesAction';
 import CitiesInput from '../components/CitiesInput';
-import '../style/Cities.css'
+import '../style/Cities.css';
+import noResultImg from '../style/no-search-result.png';
 import CityCard from '../components/CityCard';
 
 class Cities extends Component {
@@ -38,9 +39,11 @@ class Cities extends Component {
             return <CityCard city= {city} key={city._id}/>
         })
 
-        if (citiesList.lenght === 0) {
+        if (citiesList.length === 0) {
             citiesList = (
-                <div>NO RESULTS FOUND</div>
+                <div>
+                    <img src={noResultImg} alt="no-results-found" width='100%'></img>
+                </div>
             )
         }
         
@@ -54,9 +57,6 @@ class Cities extends Component {
             <div>
                 <CitiesInput value={this.state.input} filterData={this.filterData} />
                 {this.getCitiesList()}
-                
-
-                
             </div>
         )
         return (<div>loading</div>)

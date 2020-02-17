@@ -1,3 +1,27 @@
 body{
     background-color: whitesmoke;
 }
+
+
+/* CityCard Style */
+
+.mainContainer{
+    position: relative;
+    text-align: center;
+    color: white;
+    padding-top: 5%;
+}
+
+.titleContainer{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.cardImage{
+    max-height: 27vh;
+}
+
+/* Input style */
+

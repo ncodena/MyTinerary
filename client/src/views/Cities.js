@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
 import {fetchCities} from '../actions/citiesAction';
 import CitiesInput from '../components/CitiesInput';
 import '../style/Cities.css';
@@ -37,7 +38,9 @@ class Cities extends Component {
       
         
         let citiesList = this.filterCities().map(city => {
-            return <CityCard city= {city} key={city._id}/>
+            return <Link to={`/itineraries/${city.name}`} key={city._id}> 
+                        <CityCard city= {city} key={city._id}/>
+                    </Link>
         })
 
         if (citiesList.length === 0) {

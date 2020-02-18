@@ -5,6 +5,7 @@ import CitiesInput from '../components/CitiesInput';
 import '../style/Cities.css';
 import noResultImg from '../style/no-search-result.png';
 import CityCard from '../components/CityCard';
+import LoadingSpinner from '../components/Spinner';
 
 class Cities extends Component {
 
@@ -59,7 +60,7 @@ class Cities extends Component {
                 {this.getCitiesList()}
             </div>
         )
-        return (<div>loading</div>)
+        return (<LoadingSpinner/>)
     }
 }
 

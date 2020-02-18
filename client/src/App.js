@@ -7,6 +7,7 @@ import AppNavbar from './components/AppNavbar';
 import Footer from './components/Footer';
 import Landing from './views/Landing';
 import Cities from './views/Cities';
+import Itineraries from './views/Itineraries';
 import './App.css';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
             <AppNavbar/>
             <Route path="/landing" component={Landing}/>
             <Route path="/cities" component={Cities}/>
+            <Route path="/itineraries/:name" component={Itineraries}/>
             <Footer/>
           </div>
         </Router>

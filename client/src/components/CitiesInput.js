@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStyles, makeStyles} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import '../style/Cities.css';
+import '../style/Cities.css'
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -22,7 +22,8 @@ export default function CitiesInput(props) {
 
 
   return (
-    <form className={classes.root} noValidate autoComplete="off">  
+    <form className={classes.root} noValidate autoComplete="off">
+        <p className="previousMessage">Find your favourite city</p>
         <div className="inputContainer">
             <TextField id="standard-basic" label="Search by city or country" onChange={filterData} />
         </div>

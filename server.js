@@ -5,10 +5,12 @@ const bodyParser = require('body-parser');
 //Declaring routes variables
 
 const cities = require('./routes/api/cities')
+const itineraries = require('./routes/api/itineraries')
 
-const app = express();
 
 // Bodyparser Middleware
+
+const app = express();
 
 app.use(bodyParser.json());
 
@@ -35,6 +37,7 @@ mongoose.connect(db, {
     // Use Routes
 
     app.use('/api/cities', cities);
+    app.use('/api/itineraries', itineraries);
 
     const port = process.env.PORT || 5000;
 

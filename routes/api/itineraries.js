@@ -9,7 +9,7 @@ const Itinerary = require('../../models/ItineraryModel');
 
 router.get('/itineraries',
     (req, res) => {
-        itinerarySchema.find({})
+        Itinerary.find({})
             .then(itineraries => {
                 res.send(itineraries)
             })
@@ -23,7 +23,7 @@ router.get('/itineraries',
 router.get('/:cityId',
 	(req, res) => {
   		let cityRequested = req.params.cityId;
-  		itinerarySchema.find({ cityId: cityRequested })
+  		Itinerary.find({ cityId: cityRequested })
 			.then(itineraries => {
 				res.send(itineraries)
 			})

@@ -1,7 +1,8 @@
-import { REQUEST_CITIES, FETCH_CITIES, FAIL_FETCH_CITIES } from '../actions/types';
+import { REQUEST_CITIES, FETCH_CITIES, FAIL_FETCH_CITIES, FETCH_CITY } from '../actions/types';
 
 const initialState = {
     cities: [],
+    city: {},
     loading: false,
     error: ''
 }
@@ -24,6 +25,12 @@ export default function( state = initialState, action){
                 ...state,
                 loading: false,
                 error: action.error
+            }
+        case FETCH_CITY:
+            return {
+                ...state,
+                loading: false,
+                city: action.city
             }
             default:
                 return state;

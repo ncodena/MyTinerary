@@ -7,6 +7,8 @@ class CityCard extends Component {
 
         const {city} = this.props
 
+        // const {onClick} = this.props
+
         return (
                 <Card>
                     <div className="mainContainer">
@@ -16,7 +18,7 @@ class CityCard extends Component {
                                 <h5>{city.country}</h5>
                             </div>
                     </div>
-                </Card>   
+                </Card>
         )
     }
 }

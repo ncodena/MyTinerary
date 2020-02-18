@@ -1,4 +1,4 @@
-import { REQUEST_CITIES, FETCH_CITIES, FAIL_FETCH_CITIES } from './types';
+import { REQUEST_CITIES, FETCH_CITIES, FAIL_FETCH_CITIES, FETCH_CITY } from './types';
 import axios from 'axios';
 
 export const fetchCities = () => dispatch => {
@@ -15,6 +15,28 @@ export const fetchCities = () => dispatch => {
             dispatch(failFetchCities(error.message))
         })
 };
+
+export const fetchCity = (name) => {
+    return async function (dispatch) {
+        return await axios
+        .get(`/api/cities/${name}`)
+        .then(res => 
+            dispatch({
+                type: FETCH_CITY,
+                city: res.data,
+            }))
+        .catch(err => console.error(err)) 
+    }
+    
+}
+
+// export const fetchCity = (city) => {
+
+//     return {
+//         type: FETCH_CITY,
+//         city
+//     }
+// }
 
 export const requestCities = () => {
     return {

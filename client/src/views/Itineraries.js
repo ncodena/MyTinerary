@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import CityCard from '../components/CityCard';
+import ItineraryCard from '../components/ItineraryCard';
 import {fetchCity} from '../actions/citiesAction';
 import {fetchItineraries} from '../actions/itinerariesAction';
-
 
 
 class Itineraries extends Component {
@@ -13,26 +13,23 @@ class Itineraries extends Component {
 
         console.log(city)
         
-
-
         this.props.fetchCity(city)
             .then(() => this.props.fetchItineraries(city)
             .catch(err => console.log(err)))
 
-
     }
 
 
-    getItineraries() {
+    getItineraries = () => {
 
-        const itineraries = this.props.itineraries;
-        console.log(itineraries)
-
-       
-
-        
+        let itinerariesList = this.props.itineraries.map(itinerary => {
+            return <ItineraryCard itinerary={itinerary} key={itinerary._id}/>
+        })
+        return itinerariesList  
+ 
     }
 
+    
 
     render() {
 

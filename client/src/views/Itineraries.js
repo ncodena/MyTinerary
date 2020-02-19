@@ -13,10 +13,6 @@ class Itineraries extends Component {
 
         console.log(city)
 
-        // let name = city.name
-
-        // console.log(name)
-
 
         this.props.fetchCity(city)
 
@@ -44,7 +40,6 @@ class Itineraries extends Component {
 
         return (
             <div>
-                <h1>hi</h1>
                     <CityCard city={this.props.city} key={this.props.city._id}/> 
                 {/* {this.getCity()}   */}
             </div>
@@ -54,7 +49,7 @@ class Itineraries extends Component {
 
 const mapStatetoProps = (state) => {
     return {
-        city: state.cities.city
+        city: state.cities.city 
     }
 }
 

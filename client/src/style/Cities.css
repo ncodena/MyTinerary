@@ -38,3 +38,12 @@ body{
     flex-direction: column;
     justify-content: center;
 }
+
+/* Spinner */
+
+.spinnerContainer{
+    height: 77vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

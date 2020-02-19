@@ -1,9 +1,10 @@
 import React from 'react';
 import { Spinner } from 'reactstrap';
+import '../style/Cities.css'
 
 const LoadingSpinner = (props) => {
   return (
-    <div>
+    <div className="spinnerContainer">
       <Spinner type="grow" color="info" />
     </div>
   );

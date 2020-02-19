@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 import {fetchCities} from '../actions/citiesAction';
-import {fetchCity} from '../actions/citiesAction';
 import CitiesInput from '../components/CitiesInput';
 import '../style/Cities.css';
 import noResultImg from '../style/no-search-result.png';
@@ -34,30 +33,16 @@ class Cities extends Component {
         return this.props.cities.filter(city=> city.name.toLowerCase().startsWith(this.state.input) || city.country.toLowerCase().startsWith(this.state.input)) 
     }
 
-    getCity = (e, city) => {
-        e.preventDefault()
-        this.props.fetchCity(city)
-        console.log(this.props.fetchCity(city))
-    }
 
     getCitiesList = () => {
       
         
         let citiesList = this.filterCities().map(city => {
-            return <button onClick={(e) => this.getCity(e, city)} key={city._id}>  
-                        <Link to={`/itineraries/${city.name}`} key={city._id}>
-                            <CityCard city={city} key={city._id}/> 
-                        </Link>
-                    </button>
+            return <Link to={`/itineraries/${city.name}`} key={city._id}>
+                        <CityCard city={city} key={city._id}/> 
+                    </Link>
+                    
         })
-
-
-        // let citiesList = this.filterCities().map(city => {
-        //     return <Link to={`/itineraries/${city.name}`} key={city._id}>
-        //     <button key={city._id} onClick={(e) => this.getCity(e, city)}>{city.name}</button>
-        //     </Link>
-        // })
-
 
         if (citiesList.length === 0) {
             citiesList = (
@@ -72,8 +57,6 @@ class Cities extends Component {
         return citiesList
         
     }
-
-    
 
     render() {
         if(!this.props.loading)
@@ -90,7 +73,6 @@ class Cities extends Component {
 const mapStatetoProps = (state) => {
     return {
         cities: state.cities.cities,
-        city: state.cities.city,
         loading: state.cities.loading,
     }
 };
@@ -98,7 +80,6 @@ const mapStatetoProps = (state) => {
 const mapDispatchtoProps = (dispatch) => {
     return {
         fetchCities: () => dispatch(fetchCities()),
-        fetchCity : (city) => dispatch(fetchCity(city))
     }
 }
 

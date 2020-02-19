@@ -15,6 +15,9 @@ import { red } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import '../style/Itineraries.css';
+
+import ActivitiesCarousel from './Carousel';
 // import EuroIcon from '@material-ui/icons/Euro';
 
 const useStyles = makeStyles(theme => ({
@@ -62,16 +65,12 @@ export default function ItineraryCard(props) {
     console.log(itinerary)
 
     if(setOpen) {
-      return (
-        itinerary.activities.map (activity => {
           return (
             <Fragment>
-              <p>{activity.title}</p>
-              <h1>Hi</h1>
+              <h3 className="activitiesBanner">Available activities</h3>
+              <ActivitiesCarousel itinerary={itinerary} key={itinerary._id}/>
             </Fragment>
-          )})
-      )
-    }
+          )}
   }
 
   return (
@@ -108,7 +107,6 @@ export default function ItineraryCard(props) {
 
       <Collapse in={isOpen} timeout="auto" unmountOnExit>
         <CardContent>
-        <h1>hi</h1>
           {displayActivities(props)} 
         </CardContent>
       </Collapse>

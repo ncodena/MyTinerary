@@ -1,0 +1,15 @@
+/* Carousel style */
+
+.activityImg{
+    max-height: 30vh;
+}
+
+.activityTitle{
+    display: flex;
+    justify-content: center;
+    padding-top: 4%;
+}
+.activitiesBanner{
+    display: flex;
+    justify-content: center;
+}

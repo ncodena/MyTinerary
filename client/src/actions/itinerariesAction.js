@@ -1,10 +1,10 @@
-import { REQUEST_ITINERARIES, FETCH_ITINERARIES, FAIL_FETCH_ITINERARIES, FETCH_CITY } from './types';
+import { REQUEST_ITINERARIES, FETCH_ITINERARIES, FAIL_FETCH_ITINERARIES} from './types';
 import axios from 'axios';
 
-export const fetchItineraries = (cityId) => {
+export const fetchItineraries = (cityName) => {
     return async function (dispatch) {
         return await axios
-        .get(`api/itineraries/${cityId}`)
+        .get(`/api/itineraries/${cityName}`)
         .then(res =>
             dispatch({
                 type: FETCH_ITINERARIES,

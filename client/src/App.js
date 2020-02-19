@@ -16,7 +16,7 @@ function App() {
         <Router>
           <div className="App">
             <AppNavbar/>
-            <Route path="/landing" component={Landing}/>
+            <Route exact path="/" component={Landing}/>
             <Route path="/cities" component={Cities}/>
             <Route path="/itineraries/:name" component={Itineraries}/>
             <Footer/>

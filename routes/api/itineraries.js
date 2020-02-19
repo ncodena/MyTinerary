@@ -7,7 +7,7 @@ const Itinerary = require('../../models/ItineraryModel');
 //@description Get itineraries
 //@access Public
 
-router.get('/itineraries',
+router.get('/all',
     (req, res) => {
         Itinerary.find({})
             .then(itineraries => {
@@ -20,10 +20,10 @@ router.get('/itineraries',
 //@description Get itineraries by city Id
 //@access Public
 
-router.get('/:cityId',
+router.get('/:cityName',
 	(req, res) => {
-  		let cityRequested = req.params.cityId;
-  		Itinerary.find({ cityId: cityRequested })
+  		let cityRequested = req.params.cityName;
+  		Itinerary.find({references: cityRequested })
 			.then(itineraries => {
 				res.send(itineraries)
 			})

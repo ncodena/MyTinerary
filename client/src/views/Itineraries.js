@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import CityCard from '../components/CityCard';
 import {fetchCity} from '../actions/citiesAction';
-
+import {fetchItineraries} from '../actions/itinerariesAction';
 
 
 
@@ -12,19 +12,21 @@ class Itineraries extends Component {
         const city = window.location.pathname.split("/")[2]
 
         console.log(city)
+        
 
 
         this.props.fetchCity(city)
+            .then(() => this.props.fetchItineraries(city)
+            .catch(err => console.log(err)))
 
 
-        // console.log(this.props.fetchCity(city))
     }
 
-    getCity() {
 
-        // const city = this.props.city;
+    getItineraries() {
 
-        // console.log(city)
+        const itineraries = this.props.itineraries;
+        console.log(itineraries)
 
        
 
@@ -40,8 +42,8 @@ class Itineraries extends Component {
 
         return (
             <div>
-                    <CityCard city={this.props.city} key={this.props.city._id}/> 
-                {/* {this.getCity()}   */}
+                <CityCard city={this.props.city} key={this.props.city._id}/> 
+                {this.getItineraries()}  
             </div>
         )
     }
@@ -49,15 +51,16 @@ class Itineraries extends Component {
 
 const mapStatetoProps = (state) => {
     return {
-        city: state.cities.city 
+        city: state.cities.city,
+        itineraries: state.itineraries.itineraries
     }
 }
 
 const mapDispatchtoProps = (dispatch) => {
     return {
-        fetchCity : (city) => dispatch(fetchCity(city))
+        fetchCity : (city) => dispatch(fetchCity(city)),
+        fetchItineraries : (city) => dispatch(fetchItineraries(city))
         
-
     }
 }
 

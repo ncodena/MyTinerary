@@ -40,6 +40,7 @@ mongoose.connect(db, {
     app.use('/api/cities', require('./routes/api/cities'));
     app.use('/api/itineraries', require('./routes/api/itineraries'));
     app.use('/api/users', require('./routes/api/users'));
+    app.use('/api/auth', require('./routes/api/auth'));
 
     const port = process.env.PORT || 5000;
 

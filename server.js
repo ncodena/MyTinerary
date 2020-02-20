@@ -1,12 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const config = require('config');
 
 //Declaring routes variables
 
-const cities = require('./routes/api/cities')
-const itineraries = require('./routes/api/itineraries')
 
+// const itineraries = require('./routes/api/itineraries')
+// const users = require('./routes/api/users')
 
 // Bodyparser Middleware
 
@@ -21,7 +22,7 @@ app.use(
 );
 
 // DB Config
-const db = require ('./config/keys').mongoURI;
+const db = config.get('mongoURI');
 
 //Connect to Mongo
 
@@ -36,8 +37,9 @@ mongoose.connect(db, {
 
     // Use Routes
 
-    app.use('/api/cities', cities);
-    app.use('/api/itineraries', itineraries);
+    app.use('/api/cities', require('./routes/api/cities'));
+    app.use('/api/itineraries', require('./routes/api/itineraries'));
+    app.use('/api/users', require('./routes/api/users'));
 
     const port = process.env.PORT || 5000;
 

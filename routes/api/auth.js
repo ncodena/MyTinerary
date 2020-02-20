@@ -3,6 +3,7 @@ const router = express.Router();
 const config = require('config');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const auth = require('../../middleware/authMiddleware')
 
 const User = require('../../models/UserModel');
 
@@ -57,9 +58,34 @@ User.findOne({email})
         
 
     })
-
-    
 });
+
+// @route GET auth/user
+// @desc Get user data
+// @access Private
+
+router.get('/user', auth, (req, res) => {
+    console.log('from get user route')
+    User.findById(req.user.id)
+        .select('-password')
+        .then(user => res.json(user));
+});
+
+// @route GET auth/getUser/:id
+// @desc Get user data
+// @access Public
+
+// router.get('/getUser/:id', 
+//    async (req, res) => {
+//     // console.log("inside the get route")
+//     let userRequested = req.params.id;
+//     // console.log(req.params.id)
+//     await getUserById(userRequested).then(user =>res.json(user)).catch(err => console.log(err));
+// });
+
+// const getUserById = async (id) => {
+//     return await User.findOne({_id: id})
+// }
 
 
 

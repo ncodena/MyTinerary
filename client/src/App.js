@@ -19,7 +19,7 @@ function App() {
             <Route exact path="/" component={Landing}/>
             <Route path="/cities" component={Cities}/>
             <Route path="/itineraries/:name" component={Itineraries}/>
-            <Footer/>
+            {/* <Footer/> */}
           </div>
         </Router>
     </Provider>

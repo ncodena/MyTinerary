@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {Provider} from 'react-redux';
 import store from './store';
 import {Route, BrowserRouter as Router} from 'react-router-dom';
@@ -9,8 +9,15 @@ import Landing from './views/Landing';
 import Cities from './views/Cities';
 import Itineraries from './views/Itineraries';
 import './App.css';
+import {loadUser} from './actions/authAction';
 
-function App() {
+class App extends Component {
+
+  componentDidMount(){
+    store.dispatch(loadUser());
+  }
+
+  render() {
   return (
     <Provider store={store}>
         <Router>
@@ -23,7 +30,7 @@ function App() {
           </div>
         </Router>
     </Provider>
-  );
+  )};
 }
 
 export default App;

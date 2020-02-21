@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, Input, Label, Form, FormGroup, NavLink } from 'reactstrap';
 import { connect } from 'react-redux';
+// import {}
 
 
 
@@ -268,14 +269,10 @@ import { connect } from 'react-redux';
                 "Zimbabwe",
                 "Åland Islands"
             ]
-
-
-
-
-
         };
 
         toggle = () => {
+
             //Clear errors
     
             // this.props.clearErrors();
@@ -291,24 +288,24 @@ import { connect } from 'react-redux';
         onSubmit = e => {
             e.preventDefault();
     
-            const {name, email, password} = this.state;
+            // const {name, email, password} = this.state;
     
-            //Create user object
+            // //Create user object
     
-            const newUser = {
-                firstName,
-                lastName, 
-                userName, 
-                password,
-                email,
-                country,
-                hasAgreed,
-            }
+            // const newUser = {
+            //     firstName,
+            //     lastName, 
+            //     userName, 
+            //     password,
+            //     email,
+            //     country,
+            //     hasAgreed,
+            // }
     
             //Attempt to register
     
-            this.props.Register(newUser);
-            console.log(this.props.Register(newUser))
+            // this.props.Register(newUser);
+            // console.log(this.props.Register(newUser))
     
             //Close modal
             // this.toggle();
@@ -317,9 +314,7 @@ import { connect } from 'react-redux';
         chooseCountry() {
     
             return this.state.countryList.map((country, index) =>{
-
-                <option value= {country} key={index}>{country}</option>
-
+                return <option value={country} key={index}>{country}</option>
             })
          }
     
@@ -331,47 +326,43 @@ import { connect } from 'react-redux';
                 Register
             </NavLink>
             <Modal isOpen={this.state.modal} toggle={this.toggle}>
-                <ModalHeader toggle={this.toggle}>Registration Form</ModalHeader>
+                <ModalHeader color="info" toggle={this.toggle}>Registration Form</ModalHeader>
                 <ModalBody>
                     <Form onSubmit={this.onSubmit}>  
-                    <FormGroup>
+                        <FormGroup>
+                            <Label for="firstName">First Name</Label>
+                            <Input className="mb-3" type="text" name="firstName" id="firstName" placeholder="First Name" onChange={this.onChange}/>
 
-                        <Label for="firstName">First Name</Label>
-                        <Input type="text" name="firstName" id="firstName" placeholder="First Name" onChange={this.onChange}/>
+                            <Label for="lastName">Last Name</Label>
+                            <Input className="mb-3" type="text" name="lastName" id="lastName" placeholder="Last Name" onChange={this.onChange}/>
+                        </FormGroup>
 
-                        <Label for="lastName">Last Name</Label>
-                        <Input type="text" name="lastName" id="lastName" placeholder="Last Name" onChange={this.onChange}/>
+                        <FormGroup>
+                            <Label for="userName">User Name</Label>
+                            <Input className="mb-3" type="text" name="userName" id="userName" placeholder="UserName" onChange={this.onChange}/>
 
-                        <Label for="userName">User Name</Label>
-                        <Input type="text" name="userName" id="userName" placeholder="UserName" onChange={this.onChange}/>
+                            <Label for="email">E-mail address</Label>
+                            <Input className="mb-3" type="text" name="email" id="email" placeholder="E-mail" onChange={this.onChange}/>
+                        </FormGroup>
 
-                        <Label for="email">E-mail address</Label>
-                        <Input type="text" name="email" id="email" placeholder="E-mail" onChange={this.onChange}/>
+                        <FormGroup>
+                            <Label for="country">Country</Label>
+                            <Input className="mb-3" type="select" name="country" id="country" onChange={this.onChange}>
+                                <option value="false">Choose your country</option>
+                                {this.chooseCountry()}
+                            </Input>
+                        </FormGroup>
+                        <FormGroup>
+                            <Label className="FormField__CheckboxLabel"></Label>
+                            <Input className="mb-3" type="checkbox" id="hasAgreed" name="hasAgreed"/> I agree to MYtinerary's<a href="#" className="FormField__TermsLink">{' '}Terms and Conditions.</a>
+                        </FormGroup>
+                        <Button color="info" onClick={this.toggle}>Submit</Button>
 
-                        <Label for="country">Country</Label>
-                        <Input type="select" name="country" id="country" onChange={this.onChange}>
-                            <option value="false">Choose your country</option>
-                            {this.chooseCountry()}
-                        </Input>
-            </FormGroup>
-            <FormGroup className="mx-2" check>  
-            <Label check>
-                <Input type="checkbox" checked={keyboard} onChange={changeKeyboard} /> Keyboard
-            </Label>
-            </FormGroup>
-            {' '}
-            <Button color="danger" onClick={toggle}>{buttonLabel}</Button>
-        </Form>
-                    
-                </ModalBody>
-                <ModalFooter>
-                    <Button color="primary" onClick={toggle}>Do Something</Button>{' '}
-                    <Button color="secondary" onClick={toggle}>Cancel</Button>
-                </ModalFooter>
+                    </Form>   
+                </ModalBody> 
             </Modal>
         </div>
-        )
-    }
+    )}
 }
 
 const mapStatetoProps = (state) => {

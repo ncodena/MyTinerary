@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, Input, Label, Form, FormGroup, NavLink } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, Input, Label, Form, FormGroup, NavLink, Alert } from 'reactstrap';
 import { connect } from 'react-redux';
 import {register} from '../actions/authAction';
+import {clearErrors} from '../actions/errorAction';
 
 
     class RegisterModal extends Component {
@@ -270,10 +271,37 @@ import {register} from '../actions/authAction';
             ]
         };
 
+        componentDidUpdate(prevProps) {
+
+            const {error, isAuthenticated} = this.props;
+
+            if(error !== prevProps.error) {
+                if(error.id == 'REGISTER_FAIL'){
+                    this.setState({ msg:error.msg.msg });
+
+                } else {
+                    this.setState({msg: null})
+                }
+            }
+
+            //If authenticated, close modal
+
+            if(this.state.modal){
+
+                if(isAuthenticated){
+                    this.toggle();
+
+                }
+
+            }
+
+        }
+
         toggle = () => {
 
-            //Clear errors
-            // this.props.clearErrors();
+            // Clear errors
+            this.props.clearErrors();
+
             this.setState({
                 modal: !this.state.modal
             });
@@ -307,7 +335,7 @@ import {register} from '../actions/authAction';
             this.props.register(newUser);
     
             //Close modal
-            
+
             // this.toggle();
         }
 
@@ -328,6 +356,11 @@ import {register} from '../actions/authAction';
             <Modal isOpen={this.state.modal} toggle={(e) => this.onSubmit(e)}>
                 <ModalHeader color="info" toggle={this.toggle}>Registration Form</ModalHeader>
                 <ModalBody>
+
+                    {this.state.msg ? (
+                        <Alert color="danger">{this.state.msg}</Alert>
+                        ) : null}
+
                     <Form onSubmit={this.onSubmit}>  
                         <FormGroup>
                             <Label for="firstName">First Name</Label>
@@ -380,7 +413,7 @@ const mapStatetoProps = (state) => {
 const mapDispatchtoProps = (dispatch) => {
     return {
         register : (newUser) => dispatch(register(newUser)),
-        // fetchItineraries : (city) => dispatch(fetchItineraries(city))
+        clearErrors: () => dispatch(clearErrors())
         
     }
 }

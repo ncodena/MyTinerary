@@ -17,23 +17,24 @@ router.post('/register', (req, res) => {
             userName, 
             password,
             email,
-            country,
-            img,
-            hasAgreed
+            country
 
-    } = req.body;
-
+    } = JSON.parse(Object.keys(req.body)[0]);
 // Simple validation
+console.log(JSON.parse(Object.keys(req.body)[0]))
+
+console.log(!userName ||!email ||!password)
 
 if(!userName ||!email ||!password){
-    return res.status(400).json({msg: 'Please enter all fields'});
+    return res.status(403).json({msg: 'Please enter all fields'});
 
 }
 
 // Check for existent user
-
+console.log()
 User.findOne({email})
     .then(user => {
+        console.log(user)
         if(user) return res.status(400).json({msg: 'User already exists'});
 
         const newUser = new User({
@@ -42,10 +43,10 @@ User.findOne({email})
             userName, 
             password,
             email,
-            country,
-            img,
-            hasAgreed
+            country
         });
+
+        // const newUser = Object.keys(newUser)
 
         // Create salt & hash
 

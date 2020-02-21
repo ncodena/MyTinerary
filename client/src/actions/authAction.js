@@ -15,7 +15,7 @@ export const loadUser = () => (dispatch, getState) => {
     axios.get('/api/auth/user', tokenConfig(getState))
         .then(res => dispatch({
             type: USER_LOADED,
-            currentUser: res.data
+            payload: res.data
         }))
         .catch(err => {
             dispatch(returnErrors(err.response.data, err.response.status));
@@ -48,4 +48,45 @@ export const tokenConfig = getState => {
     }
 
     return config;
+}
+
+// Register User
+
+export const register = (newUser) => dispatch => {
+
+    console.log('from register action', newUser)
+
+    // Headers
+
+    const config = {
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        }
+    }
+
+    // Request body
+    const body = JSON.stringify(newUser)
+
+    console.log(body)
+
+    axios.post('/api/users/register', body, config)
+
+    
+        .then(res => dispatch({
+            type: REGISTER_SUCCESS,
+            payload: res.data
+        }))
+
+        .then(data => {
+            console.log(data)
+        })
+        
+        .catch(err => {
+            dispatch(returnErrors(err.response.data, err.response.status, 'REGISTER_FAIL'));
+
+            dispatch({
+                type: REGISTER_FAIL
+            })
+        })
+        
 }

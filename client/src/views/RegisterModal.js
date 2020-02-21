@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, Input, Label, Form, FormGroup, NavLink } from 'reactstrap';
 import { connect } from 'react-redux';
-// import {}
-
+import {register} from '../actions/authAction';
 
 
     class RegisterModal extends Component {
@@ -15,7 +14,7 @@ import { connect } from 'react-redux';
             password: '',
             email: '',
             country: '',
-            hasAgreed: false,
+            // hasAgreed: false,
             msg: null,
 
             countryList : [
@@ -274,7 +273,6 @@ import { connect } from 'react-redux';
         toggle = () => {
 
             //Clear errors
-    
             // this.props.clearErrors();
             this.setState({
                 modal: !this.state.modal
@@ -286,28 +284,30 @@ import { connect } from 'react-redux';
         };
     
         onSubmit = e => {
+
             e.preventDefault();
     
-            // const {name, email, password} = this.state;
+            const {firstName, lastName, userName, password, email, country} = this.state;
     
             // //Create user object
     
-            // const newUser = {
-            //     firstName,
-            //     lastName, 
-            //     userName, 
-            //     password,
-            //     email,
-            //     country,
-            //     hasAgreed,
-            // }
+            const newUser = {
+                firstName,
+                lastName, 
+                userName, 
+                password,
+                email,
+                country,
+            }
+
+            console.log('from register modal', newUser)
     
             //Attempt to register
     
-            // this.props.Register(newUser);
-            // console.log(this.props.Register(newUser))
+            this.props.register(newUser);
     
             //Close modal
+            
             // this.toggle();
         }
 
@@ -325,7 +325,7 @@ import { connect } from 'react-redux';
             <NavLink onClick={this.toggle} href="#">
                 Register
             </NavLink>
-            <Modal isOpen={this.state.modal} toggle={this.toggle}>
+            <Modal isOpen={this.state.modal} toggle={(e) => this.onSubmit(e)}>
                 <ModalHeader color="info" toggle={this.toggle}>Registration Form</ModalHeader>
                 <ModalBody>
                     <Form onSubmit={this.onSubmit}>  
@@ -343,6 +343,11 @@ import { connect } from 'react-redux';
 
                             <Label for="email">E-mail address</Label>
                             <Input className="mb-3" type="text" name="email" id="email" placeholder="E-mail" onChange={this.onChange}/>
+
+                            <Label for="email">Password</Label>
+                            <Input className="mb-3" type="text" name="password" id="password" placeholder="Password" onChange={this.onChange}/>
+
+
                         </FormGroup>
 
                         <FormGroup>
@@ -352,11 +357,11 @@ import { connect } from 'react-redux';
                                 {this.chooseCountry()}
                             </Input>
                         </FormGroup>
-                        <FormGroup>
+                        {/* <FormGroup>
                             <Label className="FormField__CheckboxLabel"></Label>
                             <Input className="mb-3" type="checkbox" id="hasAgreed" name="hasAgreed"/> I agree to MYtinerary's<a href="#" className="FormField__TermsLink">{' '}Terms and Conditions.</a>
-                        </FormGroup>
-                        <Button color="info" onClick={this.toggle}>Submit</Button>
+                        </FormGroup> */}
+                        <Button color="info">Submit</Button>
 
                     </Form>   
                 </ModalBody> 
@@ -374,7 +379,7 @@ const mapStatetoProps = (state) => {
 
 const mapDispatchtoProps = (dispatch) => {
     return {
-        // fetchCity : (city) => dispatch(fetchCity(city)),
+        register : (newUser) => dispatch(register(newUser)),
         // fetchItineraries : (city) => dispatch(fetchItineraries(city))
         
     }

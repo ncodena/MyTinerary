@@ -3,10 +3,9 @@ import {USER_LOADING, USER_LOADED, AUTH_ERROR, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT
 const initialState = {
     token: localStorage.getItem('token'),
     isAuthenticated: null,
-    currentUser: {},
     isLoading: false,
-    // user: null,
-    favourites: []
+    favourites: [],
+    user: null
 };
 
 export default function(state = initialState, action) {
@@ -20,7 +19,7 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 isLoading: false,
-                currentUser: action.currentUser,
+                user: action.payload,
                 isAuthenticated: true,
                 favourites: action.favourites
             };
@@ -42,9 +41,11 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 isLoading: false,
-                currentUser: {},
+                user: null,
                 token: null,
-                favourites:[]
+                favourites:[],
+                isAuthenticated: false
+
             };
         default:
             return state

@@ -90,3 +90,11 @@ export const register = (newUser) => dispatch => {
         })
         
 }
+
+// Logout user
+
+export const logout = () => {
+    return {
+        type: LOGOUT_SUCCESS
+    }
+};

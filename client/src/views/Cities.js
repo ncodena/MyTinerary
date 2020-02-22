@@ -63,7 +63,10 @@ class Cities extends Component {
         return (
             <div>
                 <CitiesInput value={this.state.input} filterData={this.filterData} />
-                {this.getCitiesList()}
+                <div className="listContainer">
+                    {this.getCitiesList()}
+                </div>
+                
             </div>
         )
         return (<LoadingSpinner/>)

@@ -5,11 +5,12 @@ body{
 
 /* CityCard Style */
 
-.mainContainer{
+.cardContainer{
     position: relative;
-    text-align: center;
     color: white;
     padding-top: 5%;
+    border: 1px solid #f1f1f1;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
 
 .titleContainer{
@@ -20,7 +21,8 @@ body{
 }
 
 .cardImage{
-    max-height: 27vh;
+    max-height: 30vh;
+    max-width: 95%;
 }
 
 /* Input style */
@@ -46,4 +48,11 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* Cities style */
+.listContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }

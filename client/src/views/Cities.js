@@ -48,7 +48,7 @@ class Cities extends Component {
             citiesList = (
                 <div className="noResultsContainer">
                     <img src={noResultImg} alt="no-results-found" width='100%'></img>
-                    <p>Not results found</p>
+                    <p className='errorMessage'>Not results found</p>
                     <p>Please, try again to search for results</p>
                 </div>
             )

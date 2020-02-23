@@ -22,11 +22,12 @@ export default function CitiesInput(props) {
 
 
   return (
-    <form className={classes.root} noValidate autoComplete="off">
-        <p className="previousMessage">Find your favourite city</p>
-        <div className="inputContainer">
-            <TextField id="standard-basic" label="Search by city or country" onChange={filterData} />
-        </div>
-    </form>
+    <div className='displayForm'>
+      <form className={classes.root} noValidate autoComplete="off">
+          <div className="inputContainer">
+              <TextField id="standard-basic" label="Search by city or country" onChange={filterData} />
+          </div>
+      </form>
+    </div>
   );
 }

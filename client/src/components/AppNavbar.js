@@ -11,6 +11,7 @@ import {
 }from 'reactstrap' ;
 import RegisterModal from '../views/RegisterModal';
 import Logout from './Logout';
+import LoyaltyIcon from '@material-ui/icons/Loyalty';
 
 class AppNavbar extends Component {
 
@@ -30,7 +31,7 @@ class AppNavbar extends Component {
             <div>
                 <Navbar color="light" light expand="sm">
                     <Container>
-                        <NavbarBrand href="/">MYTINERARY <i className="fas fa-globe-europe"></i></NavbarBrand>
+                        <NavbarBrand href="/">MYTINERARY{' '}<LoyaltyIcon/></NavbarBrand>
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>

@@ -32,6 +32,11 @@ body{
 
 /* Input style */
 
+
+.displayForm{
+    display: flex;
+    justify-content: space-around;
+}
 .previousMessage{
     display: flex;
     width: 100%;
@@ -44,6 +49,11 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+}
+
+.errorMessage{
+    margin-top: 12px;
 }
 
 /* Spinner */

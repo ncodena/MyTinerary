@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import '../style/Itineraries.css';
 import CityCard from '../components/CityCard';
 import ItineraryCard from '../components/ItineraryCard';
 import {fetchCity} from '../actions/citiesAction';
@@ -40,7 +41,10 @@ class Itineraries extends Component {
         return (
             <div>
                 <CityCard city={this.props.city} key={this.props.city._id}/> 
-                {this.getItineraries()}  
+                <div className="itinerariesContainer">
+                    {this.getItineraries()}  
+                </div>
+                
             </div>
         )
     }

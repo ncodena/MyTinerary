@@ -11,9 +11,14 @@ body{
     padding-top: 5%;
     border: 1px solid #f1f1f1;
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
+    display: flex;
+    justify-content: center;
 }
 
 .titleContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -21,8 +26,8 @@ body{
 }
 
 .cardImage{
-    max-height: 30vh;
-    max-width: 95%;
+    max-height: 32vh;
+    max-width: 85%;
 }
 
 /* Input style */

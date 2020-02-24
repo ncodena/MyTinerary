@@ -8,7 +8,7 @@ import Footer from './components/Footer';
 import Landing from './views/Landing';
 import Cities from './views/Cities';
 import Itineraries from './views/Itineraries';
-import './App.css';
+import './style/App.css';
 import {loadUser} from './actions/authAction';
 
 class App extends Component {
@@ -23,10 +23,14 @@ class App extends Component {
         <Router>
           <div className="App">
             <AppNavbar/>
-            <Route exact path="/" component={Landing}/>
-            <Route path="/cities" component={Cities}/>
-            <Route path="/itineraries/:name" component={Itineraries}/>
-            <Footer/>
+              <div className="container">
+                <div className="body">
+                  <Route exact path="/" component={Landing}/>
+                  <Route path="/cities" component={Cities}/>
+                  <Route path="/itineraries/:name" component={Itineraries}/>
+                </div>
+              </div>
+              <Footer/>
           </div>
         </Router>
     </Provider>

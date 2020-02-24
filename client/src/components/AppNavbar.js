@@ -14,6 +14,7 @@ import RegisterModal from '../views/RegisterModal';
 import LoginModal from '../views/LoginModal';
 import Logout from './Logout';
 import LoyaltyIcon from '@material-ui/icons/Loyalty';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import "../style/Landing.css"
 
 class AppNavbar extends Component {
@@ -38,8 +39,12 @@ class AppNavbar extends Component {
             <Fragment>
             <NavItem>
                     <span className="navbar-text mr-3">
-                        <strong>{user? `Welcome ${user.userName}`: null}</strong>
-                        
+                        <strong>{user? `Welcome ${user.userName}`: null}</strong> 
+                    </span>
+            </NavItem>
+            <NavItem>
+                    <span className="navbar-text mr-3">
+                        <div>{user?<img width="20%" src={user.img} alt="user image"/>: <AccountCircleIcon/>}</div> 
                     </span>
             </NavItem>
             <NavItem>

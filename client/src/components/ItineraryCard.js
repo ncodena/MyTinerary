@@ -2,6 +2,7 @@ import React from 'react';
 import {Fragment} from 'react';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
+import grey from '@material-ui/core/colors/grey';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -23,6 +24,7 @@ import ActivitiesCarousel from './Carousel';
 const useStyles = makeStyles(theme => ({
   root: {
     maxWidth: 345,
+    backgroundColor: grey[50],
   },
   media: {
     height: 0,
@@ -112,10 +114,8 @@ export default function ItineraryCard(props) {
       </Collapse>
       <div className="links">
         <Link to={'/cities'}>Back to Cities | {''}</Link>
-        <div
-          onClick={handleExpandClick}
-          aria-label="show more"> {'' +
-        isOpen ? 'Read Less' : 'Read More'}
+        <div onClick={handleExpandClick} aria-label="show more"> 
+          {isOpen ? 'Read Less' : 'Read More'}
         </div>
       </div>
     </Card>

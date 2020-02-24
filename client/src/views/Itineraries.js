@@ -5,6 +5,7 @@ import CityCard from '../components/CityCard';
 import ItineraryCard from '../components/ItineraryCard';
 import {fetchCity} from '../actions/citiesAction';
 import {fetchItineraries} from '../actions/itinerariesAction';
+import LoadingSpinner from '../components/Spinner';
 
 
 class Itineraries extends Component {
@@ -34,26 +35,30 @@ class Itineraries extends Component {
 
     render() {
 
-        const {city} = this.props
+        // const {city} = this.props
 
-        console.log(city)
+        // console.log(city)
 
+        if(!this.props.loadingCity)
         return (
             <div>
-                <CityCard city={this.props.city} key={this.props.city._id}/> 
-                <div className="itinerariesContainer">
+                <CityCard city={this.props.city} key={this.props.city._id}/>
+                {!this.props.loadingItineraries ?<div className="itinerariesContainer">
                     {this.getItineraries()}  
-                </div>
-                
+                </div> :(<LoadingSpinner/>) } 
             </div>
         )
+        return (<LoadingSpinner/>)
     }
 }
 
 const mapStatetoProps = (state) => {
     return {
         city: state.cities.city,
-        itineraries: state.itineraries.itineraries
+        itineraries: state.itineraries.itineraries,
+        loadingCity: state.itineraries.loading,
+        loadingItineraries: state.cities.loading,
+
     }
 }
 

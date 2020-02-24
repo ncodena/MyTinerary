@@ -101,7 +101,7 @@ export default function ItineraryCard(props) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <Typography variant="body3" color="textSecondary" component="h6" className="plusInfo">
+        <Typography variant="subtitle2" color="textSecondary" component="h6" className="plusInfo">
         Rating: {' ' + itinerary.rating + ' '}|Price:{' ' + itinerary.price+ ' '}
         </Typography>
       </CardActions>
@@ -114,8 +114,8 @@ export default function ItineraryCard(props) {
         <Link to={'/cities'}>Back to Cities | {''}</Link>
         <div
           onClick={handleExpandClick}
-          aria-label="show more"> {''}
-        {isOpen ? 'Read Less' : 'Read More'}
+          aria-label="show more"> {'' +
+        isOpen ? 'Read Less' : 'Read More'}
         </div>
       </div>
     </Card>

@@ -363,38 +363,34 @@ import {clearErrors} from '../actions/errorAction';
 
                     <Form onSubmit={this.onSubmit}>  
                         <FormGroup>
-                            <Label for="firstName">First Name</Label>
+                           
                             <Input className="mb-3" type="text" name="firstName" id="firstName" placeholder="First Name" onChange={this.onChange}/>
 
-                            <Label for="lastName">Last Name</Label>
+                            
                             <Input className="mb-3" type="text" name="lastName" id="lastName" placeholder="Last Name" onChange={this.onChange}/>
                         </FormGroup>
 
                         <FormGroup>
-                            <Label for="userName">User Name</Label>
+                            
                             <Input className="mb-3" type="text" name="userName" id="userName" placeholder="UserName" onChange={this.onChange}/>
 
-                            <Label for="email">E-mail address</Label>
-                            <Input className="mb-3" type="text" name="email" id="email" placeholder="E-mail" onChange={this.onChange}/>
+                            
+                            <Input className="mb-3" type="text" name="email" id="email" placeholder="E-mail address" onChange={this.onChange}/>
 
-                            <Label for="email">Password</Label>
+                            
                             <Input className="mb-3" type="text" name="password" id="password" placeholder="Password" onChange={this.onChange}/>
 
 
                         </FormGroup>
 
                         <FormGroup>
-                            <Label for="country">Country</Label>
+                            
                             <Input className="mb-3" type="select" name="country" id="country" onChange={this.onChange}>
                                 <option value="false">Choose your country</option>
                                 {this.chooseCountry()}
                             </Input>
                         </FormGroup>
-                        {/* <FormGroup>
-                            <Label className="FormField__CheckboxLabel"></Label>
-                            <Input className="mb-3" type="checkbox" id="hasAgreed" name="hasAgreed"/> I agree to MYtinerary's<a href="#" className="FormField__TermsLink">{' '}Terms and Conditions.</a>
-                        </FormGroup> */}
-                        <Button color="info">Submit</Button>
+                        <Button size="lg" block color="info">Submit</Button>
 
                     </Form>   
                 </ModalBody> 

@@ -16,8 +16,8 @@ const Footer = () => {
         <div className="footer">
             
                 <BottomNavigationAction label="Search by city" value="search" icon={<SearchIcon />} />
-                <BottomNavigationAction label="Your favorites" value="favorites" icon={<FavoriteIcon fontSize="small" />} />
-                <BottomNavigationAction label="Log out" value="logout" icon={<ExitToAppIcon />} />
+                <BottomNavigationAction label="Your favorites" value="favorites" icon={<FavoriteIcon fontSize="small" />}/>
+                <BottomNavigationAction label="Log out" value="logout" icon={<ExitToAppIcon />}/>
             
         </div>
         

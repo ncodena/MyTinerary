@@ -276,7 +276,7 @@ import {clearErrors} from '../actions/errorAction';
             const {error, isAuthenticated} = this.props;
 
             if(error !== prevProps.error) {
-                if(error.id == 'REGISTER_FAIL'){
+                if(error.id ==='REGISTER_FAIL'){
                     this.setState({ msg:error.msg.msg });
 
                 } else {

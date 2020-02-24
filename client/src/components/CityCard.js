@@ -8,7 +8,7 @@ class CityCard extends Component {
 
         return (
                     <div className="cardContainer">
-                        <img src={city.img} alt="Card image cap" className="cardImage"/>
+                        <img src={city.img} alt="card cap" className="cardImage"/>
                             <div className="titleContainer"> 
                                 <h4><strong>{city.name}</strong></h4>
                                 <h5>{city.country}</h5>

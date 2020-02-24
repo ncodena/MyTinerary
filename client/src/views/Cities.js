@@ -61,7 +61,7 @@ class Cities extends Component {
     render() {
         if(!this.props.loading)
         return (
-            <div>
+            <div className="citiesView">
                 <CitiesInput value={this.state.input} filterData={this.filterData} />
                 <div className="listContainer">
                     {this.getCitiesList()}

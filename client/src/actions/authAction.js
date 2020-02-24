@@ -94,7 +94,7 @@ export const register = (newUser) => dispatch => {
 // LOGIN USER
 export const login = (user) => dispatch => {
 
-    console.log('from register action', user)
+    console.log('from login action', user)
 
     // Headers
 

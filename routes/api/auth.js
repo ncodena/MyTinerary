@@ -3,9 +3,10 @@ const router = express.Router();
 const config = require('config');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const auth = require('../../middleware/authMiddleware')
-
+const ObjectId = require('objectid');
+const auth = require('../../middleware/authMiddleware');
 const User = require('../../models/UserModel');
+const Itinerary = require('../../models/ItineraryModel');
 
 //@route POST api/auth
 //@description Authenticate user
@@ -14,9 +15,10 @@ const User = require('../../models/UserModel');
 router.post('/login', (req, res) => {
 
 
-    const { password, email  } = JSON.parse(Object.keys(req.body)[0]);
+    const { password, email  } = req.body;
+    // JSON.parse(Object.keys(req.body)[0]);
 
-    console.log(JSON.parse(Object.keys(req.body)[0]))
+    // console.log(JSON.parse(Object.keys(req.body)[0]))
 
 // Simple validation
 
@@ -90,6 +92,18 @@ router.get('/user', auth, (req, res) => {
 //     return await User.findOne({_id: id})
 // }
 
+
+//@route Get api/auth/favourites
+//@description Fetch user's favourites
+//@access Private
+
+router.get('/favourites', auth, (req, res) => {
+    const userFavs = req.query.q.split(",");
+    const favourites = userFavs.map((id) => ObjectId(id));
+    Itinerary.find({
+        "_id" : {"$in": favourites}
+    }).then(favourites => res.send(favourites))
+});
 
 
 module.exports = router;

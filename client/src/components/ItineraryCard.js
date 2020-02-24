@@ -1,5 +1,6 @@
 import React from 'react';
 import {Fragment} from 'react';
+import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
@@ -8,14 +9,12 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
-// import Avatar from '@material-ui/core/Avatar';
 import ExploreIcon from '@material-ui/icons/Explore';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import '../style/Itineraries.css';
 
 import ActivitiesCarousel from './Carousel';
@@ -97,28 +96,28 @@ export default function ItineraryCard(props) {
         title="itinerary_image"
       />
       <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
+        <Typography variant="body2" className="description" color="textSecondary" component="p">
           {itinerary.description}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
+        <Typography variant="body3" color="textSecondary" component="h6" className="plusInfo">
+        Rating: {' ' + itinerary.rating + ' '}|Price:{' ' + itinerary.price+ ' '}
+        </Typography>
       </CardActions>
-
       <Collapse in={isOpen} timeout="auto" unmountOnExit>
         <CardContent>
           {displayActivities(props)} 
         </CardContent>
       </Collapse>
-
-      <div
+      <div className="links">
+        <Link to={'/cities'}>Back to Cities | {''}</Link>
+        <div
           onClick={handleExpandClick}
-          aria-label="show more">
+          aria-label="show more"> {''}
         {isOpen ? 'Read Less' : 'Read More'}
         </div>
-
+      </div>
     </Card>
     </div>
   );

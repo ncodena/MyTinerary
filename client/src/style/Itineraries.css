@@ -23,4 +23,13 @@
 
 .links{
     display: flex;
+    margin: 12px;
+}
+
+.description{
+    text-align:justify;
+}
+
+h6{
+    margin: 6px;
 }

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {Card, CardImg} from 'reactstrap';
 import '../style/Cities.css';
 
 class CityCard extends Component {

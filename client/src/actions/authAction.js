@@ -50,7 +50,7 @@ export const tokenConfig = getState => {
     return config;
 }
 
-// Register User
+// REGISTER USER
 
 export const register = (newUser) => dispatch => {
 
@@ -91,7 +91,48 @@ export const register = (newUser) => dispatch => {
         
 }
 
-// Logout user
+// LOGIN USER
+export const login = (user) => dispatch => {
+
+    console.log('from register action', user)
+
+    // Headers
+
+    const config = {
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        }
+    }
+
+    // Request body
+    const body = JSON.stringify(user)
+
+    console.log(body)
+
+    axios.post('/api/auth/login', body, config)
+    
+        .then(res => dispatch({
+            type: LOGIN_SUCCESS,
+            payload: res.data
+        }))
+
+        .then(data => {
+            console.log(data)
+        })
+        
+        .catch(err => {
+            dispatch(returnErrors(err.response.data, err.response.status, 'REGISTER_FAIL'));
+
+            dispatch({
+                type: LOGIN_FAIL
+            })
+        })
+        
+}
+
+
+
+// LOGOUT USER
 
 export const logout = () => {
     return {

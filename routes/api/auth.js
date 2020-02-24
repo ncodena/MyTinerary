@@ -13,7 +13,10 @@ const User = require('../../models/UserModel');
 
 router.post('/login', (req, res) => {
 
-    const { password, email  } = req.body;
+
+    const { password, email  } = JSON.parse(Object.keys(req.body)[0]);
+
+    console.log(JSON.parse(Object.keys(req.body)[0]))
 
 // Simple validation
 

@@ -10,6 +10,7 @@ import {
     NavLink,
 }from 'reactstrap' ;
 import RegisterModal from '../views/RegisterModal';
+import LoginModal from '../views/LoginModal';
 import Logout from './Logout';
 import LoyaltyIcon from '@material-ui/icons/Loyalty';
 import "../style/Landing.css"
@@ -38,6 +39,9 @@ class AppNavbar extends Component {
                             <Nav className="ml-auto" navbar>
                                 <NavItem>
                                    <RegisterModal/>
+                                </NavItem>
+                                <NavItem>
+                                   <LoginModal/>
                                 </NavItem>
                                 <NavItem>
                                    <Logout/>

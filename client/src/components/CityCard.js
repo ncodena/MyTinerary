@@ -7,7 +7,6 @@ class CityCard extends Component {
         const {city} = this.props
 
         return (
-                
                     <div className="cardContainer">
                         <img src={city.img} alt="Card image cap" className="cardImage"/>
                             <div className="titleContainer"> 

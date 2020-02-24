@@ -13,6 +13,7 @@ body{
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
     display: flex;
     justify-content: center;
+    margin: 1% 1% 1% 1%;
 }
 
 .titleContainer{
@@ -26,8 +27,12 @@ body{
 }
 
 .cardImage{
-    max-height: 32vh;
-    max-width: 85%;
+    max-width: 394px;
+    max-height: 222px;
+}
+
+.links{
+    text-decoration: inherit;
 }
 
 /* Input style */

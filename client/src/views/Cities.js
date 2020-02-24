@@ -38,7 +38,7 @@ class Cities extends Component {
       
         
         let citiesList = this.filterCities().map(city => {
-            return <Link to={`/itineraries/${city.name}`} key={city._id}>
+            return <Link to={`/itineraries/${city.name}`} key={city._id} className='links'>
                         <CityCard city={city} key={city._id}/> 
                     </Link>
                     

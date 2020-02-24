@@ -12,6 +12,7 @@ import {
 import RegisterModal from '../views/RegisterModal';
 import Logout from './Logout';
 import LoyaltyIcon from '@material-ui/icons/Loyalty';
+import "../style/Landing.css"
 
 class AppNavbar extends Component {
 
@@ -29,7 +30,7 @@ class AppNavbar extends Component {
     render() {
         return (
             <div>
-                <Navbar color="light" light expand="sm">
+                <Navbar className="navCol" light expand="sm">
                     <Container>
                         <NavbarBrand href="/">MYTINERARY{' '}<LoyaltyIcon/></NavbarBrand>
                         <NavbarToggler onClick={this.toggle} />

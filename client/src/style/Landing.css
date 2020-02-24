@@ -19,8 +19,17 @@ h2{
     margin-top: 25%;
 }
 
-.footer{
-    position: fixed;
-    z-index: 200;
+
+.footer {   
+    flex-shrink: 0; 
     bottom: 0;
+    width: 100%;
+    background-color: azure;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+  }
+
+.navCol{
+    background-color: azure;
 }

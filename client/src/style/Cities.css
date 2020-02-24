@@ -1,5 +1,5 @@
 body{
-    background-color: whitesmoke;
+    background-color: white;
 }
 
 
@@ -9,7 +9,6 @@ body{
     position: relative;
     color: white;
     padding-top: 5%;
-    border: 1px solid #f1f1f1;
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
     display: flex;
     justify-content: center;

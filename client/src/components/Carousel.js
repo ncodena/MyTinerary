@@ -32,13 +32,17 @@ const ActivitiesCarousel = (props) => {
 
     const activitiesList = itinerary.activities.map((activity) => {
         return (
+            
             <CarouselItem
                 onExiting={() => setAnimating(true)}
                 onExited={() => setAnimating(false)}
                 key={activity._id}>
-            <img className='activityImg'src={activity.img} alt='activity_img'/>
-            <h5 className='activityTitle' >{activity.title}</h5>
+                <div className="activityTandem">
+                    <img className='activityImg'src={activity.img} alt='activity_img'/>
+                    <h5 className='activityTitle' >{activity.title}</h5>
+                </div>
         </CarouselItem>
+        
         );
     });
 

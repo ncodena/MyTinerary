@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {fetchComments} from '../actions/commentsAction';
 import {Card, CardBody, CardTitle, CardText}from 'reactstrap' ;
+import '../style/Comments.css'
 
 class Comments extends Component {
 

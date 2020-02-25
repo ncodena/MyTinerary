@@ -1,8 +1,8 @@
 /* Carousel style */
 
 .activityImg{
-    max-height: 30vh;
-    max-width: 67%;
+    max-height: 192px;
+    max-width: 404px;
 }
 
 .activityTitle{
@@ -17,9 +17,10 @@
 
 .itinerariesContainer{
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    margin-top: 5%;
+    flex-direction: column;
+    margin-top: 8%;
+    width: 100%;
 }
 
 .links{
@@ -37,6 +38,8 @@ h6{
 
 .unit{
     padding: 0px 15px 10px 15px;
+    display: flex;
+    justify-content: center;
 }
 .ItineraryCard{
     max-width: 88%;
@@ -49,10 +52,19 @@ h6{
 
 .imageContainer{
     max-width: 100%;
+}
+
+/* Carousel style */
+
+.carousel{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
 
 }
 .carousel-inner{
-    width: 100%;
+    width: 60%;
     display: flex;
     justify-content: center;
 }
@@ -60,10 +72,29 @@ h6{
 .carousel-item{
     position: relative;
     display: none;
-    float: left;
-    width: 50%;
-    margin-right: 0%;
+    max-width: 50%;
+    margin-right: 97px;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     transition: transform .6s ease-in-out;
+}
+
+.carousel-item active {
+    display: flex;
+    justify-content:center
+}
+
+.carousel-item-next{
+    display: flex;
+    justify-content: center;
+} 
+
+.carousel-item-prev{
+    display: flex;
+    justify-content: center;
+
+} 
+.carousel-item.active {
+    display: flex;
+    justify-content: center;
 }

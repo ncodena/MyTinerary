@@ -89,14 +89,35 @@ router.get('/favourites', auth, (req, res) => {
 // @desc PUSHING AND REMOVING favourites
 // @access Private
 
-// router.put('/update', auth, (req, res) => {
-//     User.findOne({"_id": req.user.id
-//     }, (err, user) => {
-//         if (err) return res.sendStatus(500)
-//         if(!user)return res.sendStatus(403)
-//     })
+router.put('/update', auth, (req, res) => {
+    User.findOne({"_id": req.user.id
+    }, (err, user) => {
+        if (err) return res.sendStatus(500)
+        if(!user)return res.sendStatus(403).json({msg: 'Please, log in to manage your favourites'})
+        if (user.favourites.indexOf(req.body.favourites) === -1) {
+            updateFavourite(req.user.id, req.body.favourites, res, "$push")
+        } else {
+            updateFavourite(req.user.id, req.body.favourites, res, "$pull")
+        }
+    })
+});
 
-// });
+const updateFavourite = (userId, favId, res, action) => {
+    User.findOneAndUpdate({
+        "_id":userId
+      },
+      {
+          [action]: {
+              "favourites": favId
+          }
+      },
+      {new: true},
+      (function(err, user){
+            if (err) return res.sendStatus(500)
+            if(!user)  return res.sendStatus(403)
+            return res.send(user) 
+      }))
+};
 
 
 module.exports = router;

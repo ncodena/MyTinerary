@@ -19,7 +19,7 @@ import "../style/Landing.css"
 class AppNavbar extends Component {
 
     state = {
-        isOpen: false
+        isOpen: false,
     }
 
 

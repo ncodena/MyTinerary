@@ -1,6 +1,7 @@
 import { REQUEST_COMMENTS, FETCH_COMMENTS, FAILURE_FETCHING_COMMENTS, GET_USER } from '../actions/types';
 
 const initialState = {
+    token: localStorage.getItem('token'),
     loading: false,
     comments: [],
     error: '',
@@ -15,12 +16,14 @@ export default function reducer (state = initialState, action){
                 loading: true
             }
         case FETCH_COMMENTS:
+            localStorage.setItem('token', action.payload.token)
             return {
                 ...state,
                 loading: false,
                 comments: action.comments,
             }
         case GET_USER:
+            localStorage.setItem('token', action.payload.token)
             return {
                 ...state,
                 user: action.user

@@ -4,28 +4,8 @@ import {returnErrors} from './errorAction';
 
 import axios from 'axios';
 
-// Check token & load user
 
-export const loadUser = () => (dispatch, getState) => {
-
-    // User loading
-    dispatch({type: USER_LOADING});
-
-
-    axios.get('/api/auth/user', tokenConfig(getState))
-        .then(res => dispatch({
-            type: USER_LOADED,
-            payload: res.data
-        }))
-        .catch(err => {
-            dispatch(returnErrors(err.response.data, err.response.status));
-            dispatch({
-                type: AUTH_ERROR
-            });
-        })
-};
-
-// Setup config/headers and token
+// SETUP CONFIG/HEADERS AND TOKEN
 
 export const tokenConfig = getState => {
 
@@ -50,7 +30,32 @@ export const tokenConfig = getState => {
     return config;
 }
 
-// REGISTER USER
+
+// ACTION TO GET USER
+
+export const loadUser = () => (dispatch, getState) => {
+
+    // User loading
+    dispatch({type: USER_LOADING});
+
+    // Get request to api
+
+
+    axios.get('/api/auth/user', tokenConfig(getState))
+        .then(res => dispatch({
+            type: USER_LOADED,
+            payload: res.data
+        }))
+        .catch(err => {
+            dispatch(returnErrors(err.response.data, err.response.status));
+            dispatch({
+                type: AUTH_ERROR
+            });
+        })
+};
+
+
+// ACTION TO REGISTER USER
 
 export const register = ({firstName, lastName, userName, password, email, country}) => dispatch => {
 
@@ -65,6 +70,8 @@ export const register = ({firstName, lastName, userName, password, email, countr
 
     // Request body
     const body = JSON.stringify({firstName, lastName, userName, password, email, country});
+
+    // Post request to api
 
     axios.post('/api/users/register', body, config)
 
@@ -85,7 +92,8 @@ export const register = ({firstName, lastName, userName, password, email, countr
         
 }
 
-// LOGIN USER
+// ACTION TO LOGIN USER
+
 export const login = ({email, password}) => dispatch => {
 
     // Headers
@@ -98,7 +106,10 @@ export const login = ({email, password}) => dispatch => {
     }
 
     // Request body
+
     const body = JSON.stringify({email, password})
+
+    // Post request to api
 
     axios.post('/api/auth/login', body, config)
     
@@ -119,8 +130,7 @@ export const login = ({email, password}) => dispatch => {
 }
 
 
-
-// LOGOUT USER
+// ACTION TO LOGOUT USER
 
 export const logout = () => {
     return {

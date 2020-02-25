@@ -2,6 +2,7 @@
 
 .activityImg{
     max-height: 30vh;
+    max-width: 67%;
 }
 
 .activityTitle{
@@ -49,4 +50,20 @@ h6{
 .imageContainer{
     max-width: 100%;
 
+}
+.carousel-inner{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.carousel-item{
+    position: relative;
+    display: none;
+    float: left;
+    width: 50%;
+    margin-right: 0%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition: transform .6s ease-in-out;
 }

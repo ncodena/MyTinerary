@@ -7,6 +7,7 @@ const ObjectId = require('objectid');
 const auth = require('../../middleware/authMiddleware');
 const User = require('../../models/UserModel');
 const Itinerary = require('../../models/ItineraryModel');
+const Comment = require('../../models/CommentModel');
 
 //@route POST api/auth
 //@description Authenticate user
@@ -119,7 +120,64 @@ const updateFavourite = (userId, favId, res, action) => {
       }))
 };
 
+//@route GET api/auth/:itinerary/comments
+//@description Fetch itineraries comments
+//@access Private
 
+router.get("/:itinerary/comments", authToken, (req, res) => {
+    const {itinerary} = req.params
+    if (!req.user.id) return res.status(401).send({"msg": "Please, log in to show the comments"})
+    if (!itinerary) return res.status(403).send({"msg": "No Itinerary found"})
+    
+    Comment
+    .find({itinerary: itinerary})
+    .then(async comments => {
+
+       let modifiedComments =  [];
+
+       for (el of comments) {
+           let comment = await modifyComment(el)
+            modifiedComments.push(comment)
+    }
+    res.send(modifiedComments)
+    })
+})
+
+const modifyComment = async (comment) => {
+    const {author, body, itinerary, date} = comment;
+    let user = await getUserById(ObjectId(author))
+    .then(user => { 
+            return { 
+            id: user._id,
+            userName: user.userName,
+            img:user.img,
+            country: user.country,
+        }
+    })
+
+    return {
+        user,
+        body,
+        itinerary,
+        date
+    }
+};
+
+// @route POST api/auth/:itinerary/comments
+// @desc Post comments from user profile
+// @access Private
+
+router.post("/:itinerary/comments", authToken, (req, res) => {
+
+    const newComment = new Comment({
+        author: req.user.id,
+        itinerary: req.body.itinerary,
+        body: req.body.body,
+    });
+
+    newComment.save()
+        .then(comment => res.send("comment created", comment))
+});
 
 
 module.exports = router;

@@ -15,7 +15,6 @@ import {clearErrors} from '../actions/errorAction';
             password: '',
             email: '',
             country: '',
-            // hasAgreed: false,
             msg: null,
 
             countryList : [

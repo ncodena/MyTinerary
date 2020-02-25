@@ -39,12 +39,13 @@ class AppNavbar extends Component {
             <Fragment>
             <NavItem>
                     <span className="navbar-text mr-3">
-                        <strong>{user? `Welcome ${user.userName}`: null}</strong> 
+                        <strong>{user? `Welcome ${user.userName}`: ''}</strong> 
+                        {/* <div>{user?<img width="20%" src={user.img} alt="user image"/>: <AccountCircleIcon/>}</div>  */}
                     </span>
             </NavItem>
             <NavItem>
                     <span className="navbar-text mr-3">
-                        <div>{user?<img width="20%" src={user.img} alt="user image"/>: <AccountCircleIcon/>}</div> 
+                        {/* <div>{user?<img width="20%" src={user.img} alt="user image"/>: <AccountCircleIcon/>}</div>  */}
                     </span>
             </NavItem>
             <NavItem>

@@ -76,24 +76,7 @@ router.get('/user', auth, (req, res) => {
         .then(user => res.json(user));
 });
 
-// @route GET auth/getUser/:id
-// @desc Get user data
-// @access Public
-
-// router.get('/getUser/:id', 
-//    async (req, res) => {
-//     // console.log("inside the get route")
-//     let userRequested = req.params.id;
-//     // console.log(req.params.id)
-//     await getUserById(userRequested).then(user =>res.json(user)).catch(err => console.log(err));
-// });
-
-// const getUserById = async (id) => {
-//     return await User.findOne({_id: id})
-// }
-
-
-//@route Get api/auth/favourites
+//@route GET api/auth/favourites
 //@description Fetch user's favourites
 //@access Private
 
@@ -104,6 +87,19 @@ router.get('/favourites', auth, (req, res) => {
         "_id" : {"$in": favourites}
     }).then(favourites => res.send(favourites))
 });
+
+// @route PUT api/auth/update
+// @desc PUSHING AND REMOVING favourites
+// @access Private
+
+// router.put('/update', auth, (req, res) => {
+//     User.findOne({"_id": req.user.id
+//     }, (err, user) => {
+//         if (err) return res.sendStatus(500)
+//         if(!user)return res.sendStatus(403)
+//     })
+
+// });
 
 
 module.exports = router;

@@ -11,6 +11,7 @@ const User = require('../../models/UserModel');
 //@access Public
 
 router.post('/register', (req, res) => {
+    console.log(req.body)
     const {
             firstName,
             lastName, 
@@ -19,11 +20,8 @@ router.post('/register', (req, res) => {
             email,
             country
 
-    } = JSON.parse(Object.keys(req.body)[0]);
+    } = req.body
 // Simple validation
-console.log(JSON.parse(Object.keys(req.body)[0]))
-
-console.log(!userName ||!email ||!password)
 
 if(!userName ||!email ||!password){
     return res.status(403).json({msg: 'Please enter all fields'});

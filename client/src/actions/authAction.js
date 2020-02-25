@@ -60,7 +60,8 @@ export const register = (newUser) => dispatch => {
 
     const config = {
         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Type': 'application/json',
+            "Accept": 'application/json'
         }
     }
 
@@ -77,9 +78,6 @@ export const register = (newUser) => dispatch => {
             payload: res.data
         }))
 
-        .then(data => {
-            console.log(data)
-        })
         
         .catch(err => {
             dispatch(returnErrors(err.response.data, err.response.status, 'REGISTER_FAIL'));
@@ -100,7 +98,8 @@ export const login = (user) => dispatch => {
 
     const config = {
         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
         }
     }
 
@@ -116,9 +115,6 @@ export const login = (user) => dispatch => {
             payload: res.data
         }))
 
-        .then(data => {
-            console.log(data)
-        })
         
         .catch(err => {
             dispatch(returnErrors(err.response.data, err.response.status, 'REGISTER_FAIL'));

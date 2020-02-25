@@ -37,9 +37,12 @@ class AppNavbar extends Component {
         const authLinks = (
             <Fragment>
                 <NavItem>
-                    <span className="navbar-text mr-3">
-                        <strong>{user? `Welcome ${user.userName}`: ''}</strong>  
-                    </span>
+                    <div className="navbar-text mr-3">
+                        <strong>{user ? `Welcome ${user.userName}`: ''}</strong>
+                    </div>
+                    <div className="navbar-text mr-3">
+                        <div>{user ? <img src={user.img} alt='user' className="profileImg"/> : ''}</div>  
+                    </div>
                 </NavItem>
                 <NavItem>
                     <Logout/>

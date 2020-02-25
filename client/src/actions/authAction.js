@@ -113,10 +113,13 @@ export const login = ({email, password}) => dispatch => {
 
     axios.post('/api/auth/login', body, config)
     
-        .then(res => dispatch({
+        .then(res => { 
+            console.log('res line 117', res)
+            dispatch({
             type: LOGIN_SUCCESS,
             payload: res.data
-        }))
+        })}
+        )
 
         
         .catch(err => {

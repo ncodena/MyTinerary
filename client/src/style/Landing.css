@@ -22,3 +22,8 @@ h2{
 .navCol{
     background-color: azure;
 }
+
+.profileImg {
+    border-radius: 50%;
+    max-width: 9%;
+  }

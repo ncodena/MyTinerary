@@ -33,23 +33,27 @@ export const fetchComments = (itinerary) => {
 
     console.log("about get comments from the backend with fetch", itinerary)
 
-        return function (dispatch) {
+        return function (dispatch, getState) {
 
             dispatch({type: REQUEST_COMMENTS})
 
             axios
-                .get(`api/auth/${itinerary}/comments`, tokenConfig(getState))
-                .then(res => 
-                        dispatch({
+                .get(`/api/auth/${itinerary}/comments`, tokenConfig(getState))
+                .then(res => {
+                    console.log(res);
+                         
+                        return dispatch({
                             type: FETCH_COMMENTS,
-                            comments: res.data
-                        }))
-        
+                            comments: res.data,
+                            
+                        })
+                     } )
             .catch(err => {
                 dispatch({
                     type: FAILURE_FETCHING_COMMENTS,
                     error: err.data
                 })
             })
+
     }
 };

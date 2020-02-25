@@ -37,3 +37,16 @@ h6{
 .unit{
     padding: 0px 15px 10px 15px;
 }
+.ItineraryCard{
+    max-width: 88%;
+
+}
+
+.itineraryImage{
+    max-width: 100%;
+}
+
+.imageContainer{
+    max-width: 100%;
+
+}

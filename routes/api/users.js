@@ -65,6 +65,7 @@ User.findOne({email})
                                     user : {
                                         id: user.id,
                                         firstName:user.firstName,
+                                        userName: user.userName,
                                         lastName: user.lastName,
                                         email: user.email,
                                         country: user.country,

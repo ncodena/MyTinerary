@@ -48,6 +48,7 @@ User.findOne({email})
                                 id: user.id,
                                 firstName:user.firstName,
                                 lastName: user.lastName,
+                                userName:user.userName,
                                 email: user.email,
                                 country: user.country,
                                 img: user.img,
@@ -120,12 +121,30 @@ const updateFavourite = (userId, favId, res, action) => {
       }))
 };
 
+// @route GET api/auth/user/:id
+// @desc Get user data
+// @access Public
+
+router.get('/user/:id', 
+   async (req, res) => {
+    // console.log("inside the get route")
+    let userRequested = req.params.id;
+    // console.log(req.params.id)
+    await getUserById(userRequested).then(user =>res.json(user)).catch(err => console.log(err));
+});
+
+const getUserById = async (id) => {
+    return await User.findOne({_id: id})
+}
+
+
 //@route GET api/auth/:itinerary/comments
 //@description Fetch itineraries comments
 //@access Private
 
-router.get("/:itinerary/comments", authToken, (req, res) => {
+router.get("/:itinerary/comments", auth, (req, res) => {
     const {itinerary} = req.params
+    console.log(req.params)
     if (!req.user.id) return res.status(401).send({"msg": "Please, log in to show the comments"})
     if (!itinerary) return res.status(403).send({"msg": "No Itinerary found"})
     
@@ -139,8 +158,10 @@ router.get("/:itinerary/comments", authToken, (req, res) => {
            let comment = await modifyComment(el)
             modifiedComments.push(comment)
     }
+    console.log(modifiedComments)
     res.send(modifiedComments)
     })
+    
 })
 
 const modifyComment = async (comment) => {
@@ -167,7 +188,7 @@ const modifyComment = async (comment) => {
 // @desc Post comments from user profile
 // @access Private
 
-router.post("/:itinerary/comments", authToken, (req, res) => {
+router.post("/:itinerary/comments", auth, (req, res) => {
 
     const newComment = new Comment({
         author: req.user.id,

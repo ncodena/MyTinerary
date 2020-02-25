@@ -9,6 +9,7 @@ const initialState = {
 };
 
 export default function reducer (state = initialState, action){
+    console.log("from redicer", action, FETCH_COMMENTS, FETCH_COMMENTS == action.type)
     switch(action.type){
         case REQUEST_COMMENTS:
             return {
@@ -16,14 +17,14 @@ export default function reducer (state = initialState, action){
                 loading: true
             }
         case FETCH_COMMENTS:
-            localStorage.setItem('token', action.payload.token)
+            // localStorage.setItem('token', action.payload.token)
             return {
                 ...state,
                 loading: false,
                 comments: action.comments,
             }
         case GET_USER:
-            localStorage.setItem('token', action.payload.token)
+            // localStorage.setItem('token', action.payload.token)
             return {
                 ...state,
                 user: action.user

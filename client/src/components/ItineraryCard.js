@@ -1,6 +1,10 @@
 import React from 'react';
 import {Fragment} from 'react';
 import { Link } from 'react-router-dom';
+
+import ActivitiesCarousel from './Carousel';
+import Comments from './Comments';
+
 import { makeStyles } from '@material-ui/core/styles';
 import grey from '@material-ui/core/colors/grey';
 import Card from '@material-ui/core/Card';
@@ -16,18 +20,11 @@ import { red } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import '../style/Itineraries.css';
 
-import ActivitiesCarousel from './Carousel';
+
 // import EuroIcon from '@material-ui/icons/Euro';
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    maxWidth: 345,
-    backgroundColor: grey[50],
-  },
-  media: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9
-  },
+  
   expand: {
     transform: 'rotate(0deg)',
     transition: theme.transitions.create('transform', {
@@ -71,11 +68,20 @@ export default function ItineraryCard(props) {
               <ActivitiesCarousel itinerary={itinerary} key={itinerary._id}/>
             </Fragment>
           )}
-  }
+  };
+
+  const displayComments = (props) => {
+    const {itinerary} = props
+    if (setOpen) {
+        return (
+            <Comments itinerary={itinerary} key={itinerary._id}/>
+            )
+        }
+  };
 
   return (
     <div className="unit">
-    <Card className={classes.root}>
+    <Card className="ItineraryCard">
       <CardHeader
         avatar={
           <IconButton aria-label="explore">
@@ -90,11 +96,9 @@ export default function ItineraryCard(props) {
         title={itinerary.title}
         subheader={itinerary.duration}
       />
-      <CardMedia
-        className={classes.media}
-        image={itinerary.img}
-        title="itinerary_image"
-      />
+      <CardMedia className="imageContainer" title="itinerary_image">
+        <img src={itinerary.img} className="itineraryImage"></img>
+      </CardMedia>
       <CardContent>
         <Typography variant="body2" className="description" color="textSecondary" component="p">
           {itinerary.description}
@@ -108,6 +112,7 @@ export default function ItineraryCard(props) {
       <Collapse in={isOpen} timeout="auto" unmountOnExit>
         <CardContent>
           {displayActivities(props)} 
+          {displayComments(props)}
         </CardContent>
       </Collapse>
       <div className="links">

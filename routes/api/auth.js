@@ -16,9 +16,6 @@ router.post('/login', (req, res) => {
 
 
     const { password, email  } = req.body;
-    // JSON.parse(Object.keys(req.body)[0]);
-
-    // console.log(JSON.parse(Object.keys(req.body)[0]))
 
 // Simple validation
 

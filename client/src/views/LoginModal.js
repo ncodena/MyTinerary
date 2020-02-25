@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, Input, Label, Form, FormGroup, NavLink, Alert } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, Input, Form, FormGroup, NavLink, Alert } from 'reactstrap';
 import { connect } from 'react-redux';
 import {login} from '../actions/authAction';
 import {clearErrors} from '../actions/errorAction';

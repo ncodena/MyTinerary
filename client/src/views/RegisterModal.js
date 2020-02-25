@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, Input, Label, Form, FormGroup, NavLink, Alert } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, Input, Form, FormGroup, NavLink, Alert } from 'reactstrap';
 import { connect } from 'react-redux';
 import {register} from '../actions/authAction';
 import {clearErrors} from '../actions/errorAction';
@@ -309,6 +309,13 @@ import {clearErrors} from '../actions/errorAction';
         onChange = (e) => {
             this.setState({[e.target.name]: e.target.value});
         };
+
+        chooseCountry() {
+    
+            return this.state.countryList.map((country, index) =>{
+                return <option value={country} key={index}>{country}</option>
+            })
+         };
     
         onSubmit = e => {
 
@@ -325,27 +332,14 @@ import {clearErrors} from '../actions/errorAction';
                 password,
                 email,
                 country,
-            }
-
-            console.log('from register modal', newUser)
+            };
     
             //Attempt to register
     
             this.props.register(newUser);
     
-            //Close modal
-
-            // this.toggle();
         }
 
-        chooseCountry() {
-    
-            return this.state.countryList.map((country, index) =>{
-                return <option value={country} key={index}>{country}</option>
-            })
-         }
-    
-        
     render() {
     return (
         <div>

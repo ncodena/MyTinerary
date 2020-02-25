@@ -52,9 +52,7 @@ export const tokenConfig = getState => {
 
 // REGISTER USER
 
-export const register = (newUser) => dispatch => {
-
-    console.log('from register action', newUser)
+export const register = ({firstName, lastName, userName, password, email, country}) => dispatch => {
 
     // Headers
 
@@ -66,9 +64,7 @@ export const register = (newUser) => dispatch => {
     }
 
     // Request body
-    const body = JSON.stringify(newUser)
-
-    console.log(body)
+    const body = JSON.stringify({firstName, lastName, userName, password, email, country});
 
     axios.post('/api/users/register', body, config)
 
@@ -90,9 +86,7 @@ export const register = (newUser) => dispatch => {
 }
 
 // LOGIN USER
-export const login = (user) => dispatch => {
-
-    console.log('from login action', user)
+export const login = ({email, password}) => dispatch => {
 
     // Headers
 
@@ -104,9 +98,7 @@ export const login = (user) => dispatch => {
     }
 
     // Request body
-    const body = JSON.stringify(user)
-
-    console.log(body)
+    const body = JSON.stringify({email, password})
 
     axios.post('/api/auth/login', body, config)
     

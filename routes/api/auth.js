@@ -114,10 +114,12 @@ const updateFavourite = (userId, favId, res, action) => {
       {new: true},
       (function(err, user){
             if (err) return res.sendStatus(500)
-            if(!user)  return res.sendStatus(403)
+            if(!user)  return res.sendStatus(403).json({msg: 'Please, log in to manage your favourites'})
             return res.send(user) 
       }))
 };
+
+
 
 
 module.exports = router;

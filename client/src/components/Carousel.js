@@ -38,7 +38,7 @@ const ActivitiesCarousel = (props) => {
                 onExited={() => setAnimating(false)}
                 key={activity._id}>
                 <div className="activityTandem">
-                    <img className='activityImg'src={activity.img} alt='activity_img'/>
+                    <img width="300" height="100" className='responsive'src={activity.img} alt='activity_img'/>
                     <h5 className='activityTitle' >{activity.title}</h5>
                 </div>
         </CarouselItem>

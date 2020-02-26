@@ -17,7 +17,7 @@ export default function reducer (state = initialState, action){
                 loading: true
             }
         case FETCH_COMMENTS:
-            // localStorage.setItem('token', action.payload.token)
+            localStorage.setItem('token', action.token)
             return {
                 ...state,
                 loading: false,

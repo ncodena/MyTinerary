@@ -6,7 +6,7 @@ import ActivitiesCarousel from './Carousel';
 import Comments from './Comments';
 
 import { makeStyles } from '@material-ui/core/styles';
-import grey from '@material-ui/core/colors/grey';
+// import grey from '@material-ui/core/colors/grey';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -97,7 +97,7 @@ export default function ItineraryCard(props) {
         subheader={itinerary.duration}
       />
       <CardMedia className="imageContainer" title="itinerary_image">
-        <img src={itinerary.img} className="itineraryImage"></img>
+        <img src={itinerary.img} alt='itinerary' className="itineraryImage"></img>
       </CardMedia>
       <CardContent>
         <Typography variant="body2" className="description" color="textSecondary" component="p">

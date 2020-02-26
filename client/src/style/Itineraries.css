@@ -1,19 +1,4 @@
-/* Carousel style */
 
-.activityImg{
-    max-height: 192px;
-    max-width: 404px;
-}
-
-.activityTitle{
-    display: flex;
-    justify-content: center;
-    padding-top: 4%;
-}
-.activitiesBanner{
-    display: flex;
-    justify-content: center;
-}
 
 .itinerariesContainer{
     display: flex;
@@ -64,7 +49,7 @@ h6{
 
 }
 .carousel-inner{
-    width: 60%;
+    width: 85%;
     display: flex;
     justify-content: center;
 }
@@ -73,15 +58,16 @@ h6{
     position: relative;
     display: none;
     max-width: 50%;
-    margin-right: 97px;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     transition: transform .6s ease-in-out;
+    margin-right: 0;
 }
 
 .carousel-item active {
     display: flex;
-    justify-content:center
+    justify-content:center;
+    align-items: center;
 }
 
 .carousel-item-next{
@@ -95,6 +81,29 @@ h6{
 
 } 
 .carousel-item.active {
+    display: flex;
+    justify-content: center;
+}
+
+.activityTandem{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.responsive{
+    width: 100%;
+    height: auto;
+}
+
+.activityTitle{
+    display: flex;
+    justify-content: center;
+    padding-top: 6%;
+    align-items: center;
+    align-content: center;
+}
+.activitiesBanner{
     display: flex;
     justify-content: center;
 }

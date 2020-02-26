@@ -38,7 +38,7 @@ class AppNavbar extends Component {
             <Fragment>
                 <NavItem>
                     <div className="navbar-text mr-3">
-                        <strong>{user ? `Welcome ${user.userName}`: ''}</strong>
+                        <strong>{user ? <strong>{user.userName}</strong>: ''}</strong>
                     </div>
                     <div className="navbar-text mr-3">
                         <div>{user ? <img src={user.img} alt='user' className="profileImg"/> : ''}</div>  

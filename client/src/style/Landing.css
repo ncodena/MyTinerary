@@ -27,11 +27,21 @@ h2{
     margin-top: 25%;
 }
 
+/* AppNavbar style */
+
 .navCol{
     background-color: azure;
 }
 
+.userData{
+    width: 87%;
+}
+
+.userContainer{
+    width: 30%;
+}
+
 .profileImg {
     border-radius: 50%;
-    max-width: 9%;
+    max-width: 26px;
   }

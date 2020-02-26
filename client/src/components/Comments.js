@@ -54,8 +54,8 @@ class Comments extends Component {
 
     render() {
         return (
-            <div className="commentsContainer">
-                <h3>Comments</h3>
+            <div className="commentsList">
+                <h5>Comments</h5>
                 {this.getComments()}
             </div>
         )

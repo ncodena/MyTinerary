@@ -34,14 +34,15 @@ h2{
 }
 
 .userData{
-    width: 87%;
+    display: flex;
+    flex-direction: row;
 }
 
 .userContainer{
-    width: 30%;
+    width: 10%;
 }
 
 .profileImg {
     border-radius: 50%;
-    max-width: 26px;
+    max-width: 50px;
   }

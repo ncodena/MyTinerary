@@ -13,7 +13,6 @@ import RegisterModal from '../views/RegisterModal';
 import LoginModal from '../views/LoginModal';
 import Logout from './Logout';
 import LoyaltyIcon from '@material-ui/icons/Loyalty';
-// import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import "../style/Landing.css"
 
 class AppNavbar extends Component {
@@ -37,11 +36,13 @@ class AppNavbar extends Component {
         const authLinks = (
             <Fragment>
                 <NavItem>
-                    <div className="navbar-text mr-3">
-                        <strong>{user ? <strong>{user.userName}</strong>: ''}</strong>
-                    </div>
-                    <div className="navbar-text mr-3">
-                        <div>{user ? <img src={user.img} alt='user' className="profileImg"/> : ''}</div>  
+                    <div className="userData">
+                        <div className="navbar-text mr-3">
+                            <strong>{user ? <strong>{user.userName}</strong>: ''}</strong>
+                        </div>
+                        <div className="navbar-text mr-3 userContainer">
+                            <div>{user ? <img src={user.img} alt='user' className="profileImg"/> : ''}</div>  
+                        </div>
                     </div>
                 </NavItem>
                 <NavItem>

@@ -35,10 +35,6 @@ class Itineraries extends Component {
 
     render() {
 
-        // const {city} = this.props
-
-        // console.log(city)
-
         if(!this.props.loadingCity)
         return (
             <div>

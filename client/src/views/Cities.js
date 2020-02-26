@@ -18,15 +18,16 @@ class Cities extends Component {
         };
     }
 
+    componentDidMount(){
+        this.props.fetchCities()
+        
+    }
+
     filterData = (e) => {
         this.setState({input: e.target.value})
     }
     
 
-    componentDidMount(){
-        this.props.fetchCities()
-        
-    }
 
     filterCities = () => {
         console.log(this.props.cities)
@@ -54,8 +55,7 @@ class Cities extends Component {
             )
         }
         
-        return citiesList
-        
+        return citiesList 
     }
 
     render() {

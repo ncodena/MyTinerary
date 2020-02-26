@@ -1,3 +1,5 @@
+
+
 .landingPage{
     background-image: url(./barcelona.jpg);
     background-repeat: no-repeat;
@@ -5,7 +7,7 @@
     background-attachment: fixed;
     background-position: center;
     overflow: scroll;
-    width: 100%;
+    width: 104%;
     height: 100vh;
     z-index: 6;
     position: absolute;
@@ -15,16 +17,37 @@
     -webkit-filter: blur(1px);
 }
 
+h2 {
+    display: flex;
+    justify-content: center;
+}
+
+.screenshot{
+    width: 100%;
+    margin-bottom: -107px;
+}
+
 .content{
     position: absolute;
     z-index: 100;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
+.textContainer{
+    background-color: whitesmoke;
+    padding-top: 60px;
+    margin-left: -4%;
+    width: 105%;
+    margin-bottom: 162px;
+}
 
-h2{
-    display: flex;
-    justify-content: center;
-    margin-top: 25%;
+.button{
+    background-color: azure;
+    color: black;
 }
 
 /* AppNavbar style */
@@ -45,4 +68,4 @@ h2{
 .profileImg {
     border-radius: 50%;
     max-width: 50px;
-  }
+}

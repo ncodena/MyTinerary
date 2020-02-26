@@ -44,7 +44,7 @@ export const fetchComments = (itinerary) => {
                          
                         return dispatch({
                             type: FETCH_COMMENTS,
-                            comments: res.data,
+                            payload: res.data,
                             
                         })
                      } )

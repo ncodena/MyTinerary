@@ -17,11 +17,12 @@ export default function reducer (state = initialState, action){
                 loading: true
             }
         case FETCH_COMMENTS:
-            localStorage.setItem('token', action.token)
+            localStorage.setItem('token', action.payload.token)
             return {
                 ...state,
+                ...action.payload,
                 loading: false,
-                comments: action.comments,
+                comments: action.payload,
             }
         case GET_USER:
             // localStorage.setItem('token', action.payload.token)

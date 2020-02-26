@@ -23,28 +23,40 @@ class Comments extends Component {
 
     console.log(this.props.comments)
 
-        // let commentsList = this.props.comments.map(comment => {
-        //     return (
-
-        //         console.log(comment)
-                
-        //     )
+        let commentsList = this.props.comments.map(comment => {
+            return (
+                <Card key={comment._id}>
+                    <CardBody className="mainContainer">
+                        <div className="userContainer">
+                            <img className="avatar" src={comment.user.img} alt="user avatar" />
+                            <CardTitle className="userData"><strong>{comment.user.userName + ' '}</strong>({ comment.user.country})</CardTitle>
+                        </div>
+                        <div className="commentContainer">
+                            {comment.body}
+                            <div>
+                            <small className="text-muted">Comment posted by {comment.user.userName} on {comment.date}</small>
+                            </div>
+                        </div>
+                    </CardBody>
+                </Card>
+            )
             
-        // })
-        // if(commentsList.length === 0){
-        //     commentsList =(
-        //         <p>No comments added yet</p>
-        //     )
-        // }
-        return <p>hh</p> //commentsList
+        })
+
+        if(commentsList.length === 0){
+            commentsList =(
+                <p>No comments added yet</p>
+            )
+        }
+        return commentsList 
     }
 
 
     render() {
         return (
-            <div className="hello">
-                <h2>Comments</h2>
-                {this.getComments()}  
+            <div className="commentsContainer">
+                <h3>Comments</h3>
+                {this.getComments()}
             </div>
         )
     };
@@ -53,7 +65,7 @@ class Comments extends Component {
 }
 const mapStateToProps = (state) => {
     return {
-        comments: state
+        comments: state.comments.comments,
     }
 }
 const mapDispatchToProps = (dispatch) => {

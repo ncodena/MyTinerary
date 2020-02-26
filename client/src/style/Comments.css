@@ -4,3 +4,36 @@ h2{
     margin-top: 6%;
 }
 
+.mainContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+.userContainer{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    align-items: center;
+    justify-content: center;
+}
+
+.userData{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar{
+    border-radius: 50%;
+    max-width: 50%;
+    height: auto;
+}
+
+.commentCointainer{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    justify-content: center;
+}
+

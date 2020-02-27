@@ -188,17 +188,17 @@ const modifyComment = async (comment) => {
 // @desc Post comments from user profile
 // @access Private
 
-router.post("/:itinerary/comments", auth, (req, res) => {
+// router.post("/:itinerary/comments", auth, (req, res) => {
 
-    const newComment = new Comment({
-        author: req.user.id,
-        itinerary: req.body.itinerary,
-        body: req.body.body,
-    });
+//     const newComment = new Comment({
+//         author: req.user.id,
+//         itinerary: req.body.itinerary,
+//         body: req.body.body,
+//     });
 
-    newComment.save()
-        .then(comment => res.send("comment created", comment))
-});
+//     newComment.save()
+//         .then(comment => res.send("comment created", comment))
+// });
 
 
 module.exports = router;

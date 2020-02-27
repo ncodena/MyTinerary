@@ -5,11 +5,11 @@ import {Route, BrowserRouter as Router} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AppNavbar from './components/AppNavbar';
 import Footer from './components/Footer';
-// import Landing from './views/Landing';
 import Cities from './views/Cities';
 import Itineraries from './views/Itineraries';
 import './style/App.css';
 import {loadUser} from './actions/authAction';
+// import Landing from './views/Landing';
 
 class App extends Component {
 

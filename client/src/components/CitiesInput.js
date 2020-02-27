@@ -16,8 +16,6 @@ const useStyles = makeStyles(() =>
 export default function CitiesInput(props) {
   const classes = useStyles();
 
-  console.log("props: ",props)
-
   const {filterData} = props
 
 

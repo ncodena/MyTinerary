@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 
-// Importing connect to connect the component to  Redux store.
+
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 
-// Action
 import {fetchCities} from '../actions/citiesAction';
 
-// Child components
 import CitiesInput from '../components/CitiesInput';
 import CityCard from '../components/CityCard';
-import LoadingSpinner from '../components/Spinner';
-// Styling
+import LoadingSpinner from '../components/Spinner';ç
+
 import '../style/Cities.css';
 import noResultImg from '../style/no-search-result.png';
 
@@ -26,7 +24,6 @@ class Cities extends Component {
         };
     }
 
-    
 
     componentDidMount(){
         this.props.fetchCities()
@@ -40,7 +37,7 @@ class Cities extends Component {
     }
 
 
-    
+    // Data passing the test of filter 
 
 
     filterCities = () => {
@@ -49,8 +46,12 @@ class Cities extends Component {
     }
 
 
+    // Function to display the list of cities
+
     getCitiesList = () => {
-      
+
+
+        // Data returned in cards. For every city, it is displayed a card containing the image of the city
         
         let citiesList = this.filterCities().map(city => {
             return <Link to={`/itineraries/${city.name}`} key={city._id} className='links'>
@@ -58,6 +59,8 @@ class Cities extends Component {
                     </Link>
                     
         })
+
+        // If the search does not give any result
 
         if (citiesList.length === 0) {
             citiesList = (
@@ -73,6 +76,7 @@ class Cities extends Component {
     }
 
     render() {
+
         if(!this.props.loading)
         return (
             <div className="citiesView">
@@ -80,7 +84,6 @@ class Cities extends Component {
                 <div className="listContainer">
                     {this.getCitiesList()}
                 </div>
-                
             </div>
         )
         return (<LoadingSpinner/>)

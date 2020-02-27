@@ -5,7 +5,7 @@ import {Route, BrowserRouter as Router} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AppNavbar from './components/AppNavbar';
 import Footer from './components/Footer';
-import Landing from './views/Landing';
+// import Landing from './views/Landing';
 import Cities from './views/Cities';
 import Itineraries from './views/Itineraries';
 import './style/App.css';
@@ -25,8 +25,8 @@ class App extends Component {
               <AppNavbar/>
               <div className="container">
                 <div className="body">
-                  <Route exact path="/" component={Landing}/>
-                  <Route path="/cities" component={Cities}/>
+                  <Route exact path="/" component={Cities}/>
+                  {/* <Route path="/cities" component={Cities}/> */}
                   <Route path="/itineraries/:name" component={Itineraries}/>
                 </div>
               </div>

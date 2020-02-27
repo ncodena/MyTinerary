@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const config = require('config');
 
+const path = require('path');
+
 //Declaring routes variables
 
 
@@ -41,6 +43,17 @@ mongoose.connect(db, {
     app.use('/api/itineraries', require('./routes/api/itineraries'));
     app.use('/api/users', require('./routes/api/users'));
     app.use('/api/auth', require('./routes/api/auth'));
+
+    // Serve static assets if in production
+
+    if(process.env.NODE_ENV === 'production') {
+        //Set static folder
+        app.use(express.static('client/build'));
+        app.get('*', (req, res) => {
+            res.sendFile(path.resolve(_dirname, 'client', 'build', 'index.html' ));
+        });
+    }
+
 
     const port = process.env.PORT || 5000;
 

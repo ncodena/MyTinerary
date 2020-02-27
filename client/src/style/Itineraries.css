@@ -1,4 +1,8 @@
 
+a {
+    color: black;
+    text-decoration: none; /* no underline */
+  }
 
 .itinerariesContainer{
     display: flex;
@@ -46,12 +50,14 @@ h6{
     display: flex;
     justify-content: center;
     margin-top: 25px;
+    height: 20vh;
 
 }
-.carousel-inner{
-    width: 85%;
+.carousel-inner {
+    width: 90%;
     display: flex;
     justify-content: center;
+    background-color: lightgray;
 }
 
 .carousel-item{
@@ -107,4 +113,18 @@ h6{
 .activitiesBanner{
     display: flex;
     justify-content: center;
+}
+.carousel-indicators {
+    position: absolute;
+    right: 0;
+    bottom: 0px;
+    left: 0;
+    z-index: 15;
+    display: flex;
+    justify-content: center;
+    padding-left: 0;
+    margin-right: 0%;
+    margin-left: 0%;
+    list-style: none;
+    top: 120px;
 }

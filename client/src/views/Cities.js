@@ -8,7 +8,7 @@ import {fetchCities} from '../actions/citiesAction';
 
 import CitiesInput from '../components/CitiesInput';
 import CityCard from '../components/CityCard';
-import LoadingSpinner from '../components/Spinner';ç
+import LoadingSpinner from '../components/Spinner';
 
 import '../style/Cities.css';
 import noResultImg from '../style/no-search-result.png';
@@ -42,7 +42,8 @@ class Cities extends Component {
 
     filterCities = () => {
         console.log(this.props.cities)
-        return this.props.cities.filter(city=> city.name.toLowerCase().toUpperCase().startsWith(this.state.input) || city.country.toLowerCase().toUpperCase().startsWith(this.state.input)) 
+        return this.props.cities.filter(city=> city.name.toLowerCase().startsWith(this.state.input) ||
+         city.country.toLowerCase().toUpperCase().startsWith(this.state.input)) 
     }
 
 

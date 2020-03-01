@@ -10,7 +10,7 @@ class Landing extends Component {
         return <div>
                 <div className="landingPage"></div>
                     <div className="content">
-                        <h2><strong>MyTINERARY</strong>{''}<LoyaltyIcon fontSize='large'/></h2>
+                        <h2><strong>MyTINERARY</strong><LoyaltyIcon fontSize='large'/></h2>
                         <img className="screenshot" src={mobileScreenshot} alt="screenshot"/>
                         <div className="textContainer">
                             <p>Find your perfect trip designed by insiders and love their cities</p>

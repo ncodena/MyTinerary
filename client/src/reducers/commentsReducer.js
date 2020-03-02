@@ -39,10 +39,11 @@ export default function reducer (state = initialState, action){
             }
 
         case CREATE_COMMENT:
+            localStorage.setItem('token', action.payload.token)
             return {
                 ...state,
                 loading: false,
-                comment: action.comment
+                comment: action.payload
             }   
         case FAILURE_CREATE_COMMENT:
             return {

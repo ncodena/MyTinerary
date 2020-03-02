@@ -1,4 +1,5 @@
-import { REQUEST_COMMENTS, FETCH_COMMENTS, FAILURE_FETCHING_COMMENTS } from './types';
+import { REQUEST_COMMENTS, FETCH_COMMENTS, FAILURE_FETCHING_COMMENTS, CREATE_COMMENT, FAILURE_CREATE_COMMENT } from './types';
+import {returnErrors} from './errorAction';
 import axios from 'axios';
 
 // SETUP CONFIG/HEADERS AND TOKEN
@@ -49,6 +50,7 @@ export const fetchComments = (itinerary) => {
                         })
                      } )
             .catch(err => {
+                dispatch(returnErrors(err.response.data, err.response.status, 'FAILURE_FETCHING_COMMENTS'));
                 dispatch({
                     type: FAILURE_FETCHING_COMMENTS,
                     error: err.data
@@ -57,3 +59,36 @@ export const fetchComments = (itinerary) => {
 
     }
 };
+
+// ACTION TO POST A NEW COMMENT
+
+export const postComment = (newComment) => dispatch => {
+      
+    // Headers
+
+      const config = {
+        headers: {
+            'Content-Type': 'application/json',
+            "Accept": 'application/json'
+        }
+    }
+
+    // Request body
+
+    const body = JSON.stringify(newComment);
+
+    // Post request to API
+
+    axios.post(`/api/auth/${itinerary}/comments`, body, config)
+
+        .then(res => dispatch({
+            type: CREATE_COMMENT,
+            payload: res.data
+        }))
+
+        .catch(err => {
+            dispatch({
+                type: FAILURE_CREATE_COMMENT
+            })
+        })
+}

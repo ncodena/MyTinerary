@@ -52,8 +52,8 @@ const mapStatetoProps = (state) => {
     return {
         city: state.cities.city,
         itineraries: state.itineraries.itineraries,
-        loadingCity: state.itineraries.loading,
-        loadingItineraries: state.cities.loading,
+        loadingCity: state.cities.loading,
+        loadingItineraries: state.itineraries.loading,
 
     }
 }

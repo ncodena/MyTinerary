@@ -120,7 +120,7 @@ export default function ItineraryCard(props) {
       <div className="links">
         <Link to={'/'}>Back to Cities | {''}</Link>
         <div onClick={handleExpandClick} aria-label="show more"> 
-          {isOpen ? 'Read Less' : 'Read More'}
+          {isOpen ? ' Read Less': ' Read More'}
         </div>
       </div>
     </Card>

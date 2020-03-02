@@ -18,6 +18,7 @@ export const fetchCities = () => dispatch => {
 
 export const fetchCity = (name) => {
     return async function (dispatch) {
+        dispatch(requestCities());
         return await axios
         .get(`/api/cities/${name}`)
         .then(res => 

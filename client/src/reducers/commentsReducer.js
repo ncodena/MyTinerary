@@ -1,11 +1,12 @@
-import { REQUEST_COMMENTS, FETCH_COMMENTS, FAILURE_FETCHING_COMMENTS, GET_USER } from '../actions/types';
+import { REQUEST_COMMENTS, FETCH_COMMENTS, FAILURE_FETCHING_COMMENTS, GET_USER, CREATE_COMMENT, FAILURE_CREATE_COMMENT} from '../actions/types';
 
 const initialState = {
     token: localStorage.getItem('token'),
     loading: false,
     comments: [],
     error: '',
-    user: {}
+    user: {},
+    comment: {}
 };
 
 export default function reducer (state = initialState, action){
@@ -34,6 +35,20 @@ export default function reducer (state = initialState, action){
             return {
                 ...state,
                 loading: false,
+                error: action.error
+            }
+
+        case CREATE_COMMENT:
+            return {
+                ...state,
+                loading: false,
+                comment: action.comment
+            }   
+        case FAILURE_CREATE_COMMENT:
+            return {
+                ...state,
+                loading: false,
+                comment: null,
                 error: action.error
             }
             default:

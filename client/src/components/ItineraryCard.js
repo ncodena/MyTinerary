@@ -3,7 +3,7 @@ import {Fragment} from 'react';
 import { Link } from 'react-router-dom';
 
 import ActivitiesCarousel from './ActivitiesCarousel';
-// import ActivitiesCarousel from './Carousel';
+import CommentForm from './CommentForm';
 import Comments from './Comments';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -72,6 +72,15 @@ export default function ItineraryCard(props) {
           )}
   };
 
+  const displayComentForm = (props) => {
+    const {itinerary} = props
+    if (setOpen) {
+        return (
+            <CommentForm itinerary={itinerary} key={itinerary._id}/>
+            )
+        }
+  };
+
   const displayComments = (props) => {
     const {itinerary} = props
     if (setOpen) {
@@ -81,6 +90,7 @@ export default function ItineraryCard(props) {
         }
   };
 
+  
   return (
     <div className="unit">
     <Card className="ItineraryCard">
@@ -114,6 +124,7 @@ export default function ItineraryCard(props) {
       <Collapse in={isOpen} timeout="auto" unmountOnExit>
         <CardContent>
           {displayActivities(props)} 
+          {displayComentForm(props)}
           {displayComments(props)}
         </CardContent>
       </Collapse>

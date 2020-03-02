@@ -14,7 +14,7 @@ export const tokenConfig = getState => {
 
     const config = {
         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Type': 'application/json',
         }
     }
 
@@ -62,16 +62,7 @@ export const fetchComments = (itinerary) => {
 
 // ACTION TO POST A NEW COMMENT
 
-export const postComment = (newComment) => dispatch => {
-      
-    // Headers
-
-      const config = {
-        headers: {
-            'Content-Type': 'application/json',
-            "Accept": 'application/json'
-        }
-    }
+export const postComment = (newComment) => (dispatch, getState) => {
 
     // Request body
 
@@ -79,7 +70,7 @@ export const postComment = (newComment) => dispatch => {
 
     // Post request to API
 
-    axios.post(`/api/auth/${itinerary}/comments`, body, config)
+    axios.post(`/api/auth/${itinerary}/comments`, body, tokenConfig(getState))
 
         .then(res => dispatch({
             type: CREATE_COMMENT,

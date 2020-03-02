@@ -45,7 +45,11 @@ h6{
 
 /* Carousel style */
 
-.carousel{
+.responsive {
+    max-width: 100%;
+}
+
+/* .carousel{
     position: relative;
     display: flex;
     justify-content: center;
@@ -127,4 +131,4 @@ h6{
     margin-left: 0%;
     list-style: none;
     top: 120px;
-}
+} */

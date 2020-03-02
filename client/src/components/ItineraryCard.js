@@ -2,7 +2,8 @@ import React from 'react';
 import {Fragment} from 'react';
 import { Link } from 'react-router-dom';
 
-import ActivitiesCarousel from './Carousel';
+import ActivitiesCarousel from './ActivitiesCarousel';
+// import ActivitiesCarousel from './Carousel';
 import Comments from './Comments';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -65,6 +66,7 @@ export default function ItineraryCard(props) {
           return (
             <Fragment>
               <h3 className="activitiesBanner">Available activities</h3>
+              {/* <ActivitiesCarousel itinerary={itinerary} key={itinerary._id}/> */}
               <ActivitiesCarousel itinerary={itinerary} key={itinerary._id}/>
             </Fragment>
           )}

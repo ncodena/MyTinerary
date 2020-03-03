@@ -62,24 +62,24 @@ export const fetchComments = (itinerary) => {
 
 // ACTION TO POST A NEW COMMENT
 
-export const postComment = (newComment) => (dispatch, getState) => {
+// export const postComment = (newComment) => (dispatch, getState) => {
 
-    // Request body
+//     // Request body
 
-    const body = JSON.stringify(newComment);
+//     const body = JSON.stringify(newComment);
 
-    // Post request to API
+//     // Post request to API
 
-    axios.post(`/api/auth/${itinerary}/comments`, body, tokenConfig(getState))
+//     axios.post(`/api/auth/${itinerary}/comments`, body, tokenConfig(getState))
 
-        .then(res => dispatch({
-            type: CREATE_COMMENT,
-            payload: res.data
-        }))
+//         .then(res => dispatch({
+//             type: CREATE_COMMENT,
+//             payload: res.data
+//         }))
 
-        .catch(err => {
-            dispatch({
-                type: FAILURE_CREATE_COMMENT
-            })
-        })
-}
+//         .catch(err => {
+//             dispatch({
+//                 type: FAILURE_CREATE_COMMENT
+//             })
+//         })
+// }

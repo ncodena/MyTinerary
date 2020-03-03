@@ -42,7 +42,6 @@ const useStyles = makeStyles(theme => ({
 
 export default function ItineraryCard(props) {
 
-  const classes = useStyles();
 
   const {itinerary} = props
 

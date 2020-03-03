@@ -21,7 +21,6 @@
     justify-content: center;
 }
 
-
 .userData{
     display: flex;
     flex-direction: column;
@@ -56,3 +55,8 @@
     width: 100%;
 }
 
+.formContainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}

@@ -38,7 +38,7 @@ class CommentForm extends Component {
 
         const itineraryId = itinerary._id;
 
-        const author = user._id
+        const author = user.id;
 
         const {body} = this.state;
 
@@ -58,9 +58,7 @@ class CommentForm extends Component {
         // Attempt to post a new comment
 
         // this.props.login(user);
-        
     }
-
 
 
     render() {
@@ -69,7 +67,7 @@ class CommentForm extends Component {
                 <Form onSubmit={(e) => this.onSubmit(e)}>
                     <FormGroup className='formContainer'>
                         <Label for="exampleText">Do you want to share your experience?</Label>
-                        <Input type="textarea" name="text" id="exampleText" />
+                        <Input type="textarea" name="body" id="body" placeholder="Your text" onChange={this.onChange}/>
                         <Button color="info" size="lg">Submit</Button>
                     </FormGroup>    
                 </Form>      
@@ -81,7 +79,7 @@ class CommentForm extends Component {
 const mapStatetoProps = (state) => {
     return {
         error:state.error,
-        auth: state.auth,
+        auth: state.auth
     }
 }
 

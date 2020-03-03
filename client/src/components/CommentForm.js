@@ -4,9 +4,62 @@ import '../style/Comments.css'
 
 
 
-
-
 class CommentForm extends Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            body: '',
+        };
+    }
+
+    componentDidMount(){
+        // const {itinerary} = this.props
+
+        // console.log(itinerary)
+
+        // let date = new Date ();
+        
+        // console.log(date)
+    }
+
+    onChange = (e) => {
+        this.setState({[e.target.name]: e.target.value});
+    };
+
+    onSubmit = e => {
+        e.preventDefault();
+
+        const {itinerary} = this.props
+
+        const itineraryId = itinerary._id;
+
+        // const userId =
+
+
+        const {body} = this.state;
+
+        let date = new Date();
+
+        console.log(date)
+
+        const newComment = {
+            // author,
+            itineraryId,
+            body,
+            date
+        }
+
+        console.log(newComment)
+        
+        // Attempt to post a new comment
+
+        // this.props.login(user);
+        
+    }
+
+
+
     render() {
         return (
             <div>

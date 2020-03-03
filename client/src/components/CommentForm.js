@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Form, Button, FormGroup, Label, Input } from 'reactstrap';
 import { connect } from 'react-redux';
 import {postComment} from '../actions/commentsAction';
+import {fetchComments} from '../actions/commentsAction';
 
 import '../style/Comments.css'
 
@@ -30,7 +31,7 @@ class CommentForm extends Component {
         this.setState({[e.target.name]: e.target.value});
     };
 
-    onSubmit = e => {
+     onSubmit = async (e) => {
 
         e.preventDefault();
 
@@ -58,8 +59,11 @@ class CommentForm extends Component {
         console.log(newComment)
         
         // Attempt to post a new comment
+        await this.props.postComment(newComment);
 
-        this.props.postComment(newComment);
+
+        this.props.fetchComments(itinerary);
+        return
     }
 
 
@@ -88,6 +92,7 @@ const mapStatetoProps = (state) => {
 const mapDispatchtoProps = (dispatch) => {
     return {
         postComment : (newComment) => dispatch(postComment(newComment)),
+        fetchComments: (itinerary) => dispatch(fetchComments(itinerary))
     }
 }
 

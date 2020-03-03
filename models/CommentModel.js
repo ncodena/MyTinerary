@@ -7,7 +7,7 @@ const commentSchema = new mongoose.Schema({
         ref:'user'
     },
 
-    itinerary: {
+    itineraryId: {
         type: mongoose.Schema.Types.ObjectId, 
         ref:'itinerary'
     },

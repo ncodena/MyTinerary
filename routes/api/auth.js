@@ -149,7 +149,7 @@ router.get("/:itinerary/comments", auth, (req, res) => {
     if (!itinerary) return res.status(403).send({"msg": "No Itinerary found"})
     
     Comment
-    .find({itinerary: itinerary})
+    .find({itineraryId: itinerary})
     .then(async comments => {
 
        let modifiedComments =  [];
@@ -165,7 +165,7 @@ router.get("/:itinerary/comments", auth, (req, res) => {
 })
 
 const modifyComment = async (comment) => {
-    const {author, body, itinerary, date} = comment;
+    const {author, body, itineraryId, date} = comment;
     let user = await getUserById(ObjectId(author))
     .then(user => { 
             return { 
@@ -179,7 +179,7 @@ const modifyComment = async (comment) => {
     return {
         user,
         body,
-        itinerary,
+        itineraryId,
         date
     }
 };
@@ -192,7 +192,7 @@ router.post("/itinerary/comments", auth, (req, res) => {
 
     const newComment = new Comment({
         author: req.user.id,
-        itinerary: req.body.itinerary,
+        itineraryId: req.body.itineraryId,
         body: req.body.body,
         date: req.body.date,
     });

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Button, FormGroup, Label, Input } from 'reactstrap';
+import { Form, Button, FormGroup, Label, Input } from 'reactstrap';
+import { connect } from 'react-redux';
 import '../style/Comments.css'
 
 
@@ -28,14 +29,16 @@ class CommentForm extends Component {
     };
 
     onSubmit = e => {
+
         e.preventDefault();
 
-        const {itinerary} = this.props
+        const {user} = this.props.auth;
+
+        const {itinerary} = this.props;
 
         const itineraryId = itinerary._id;
 
-        // const userId =
-
+        const author = user._id
 
         const {body} = this.state;
 
@@ -44,7 +47,7 @@ class CommentForm extends Component {
         console.log(date)
 
         const newComment = {
-            // author,
+            author,
             itineraryId,
             body,
             date
@@ -63,13 +66,31 @@ class CommentForm extends Component {
     render() {
         return (
             <div>
-                <FormGroup className='formContainer'>
-                    <Label for="exampleText">Do you want to share your experience?</Label>
-                    <Input type="textarea" name="text" id="exampleText" />
-                    <Button color="info" size="lg">Submit</Button>
-                </FormGroup>         
+                <Form onSubmit={(e) => this.onSubmit(e)}>
+                    <FormGroup className='formContainer'>
+                        <Label for="exampleText">Do you want to share your experience?</Label>
+                        <Input type="textarea" name="text" id="exampleText" />
+                        <Button color="info" size="lg">Submit</Button>
+                    </FormGroup>    
+                </Form>      
             </div>
         )
     }
 }
-export default CommentForm;
+
+const mapStatetoProps = (state) => {
+    return {
+        error:state.error,
+        auth: state.auth,
+    }
+}
+
+const mapDispatchtoProps = (dispatch) => {
+    return {
+        // login : (user) => dispatch(login(user)),
+        // clearErrors: () => dispatch(clearErrors())
+        
+    }
+}
+
+export default  connect (mapStatetoProps, mapDispatchtoProps) (CommentForm);

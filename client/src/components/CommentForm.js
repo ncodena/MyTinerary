@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Form, Button, FormGroup, Label, Input } from 'reactstrap';
 import { connect } from 'react-redux';
+import {postComment} from '../actions/commentsAction';
+
 import '../style/Comments.css'
 
 
@@ -57,7 +59,7 @@ class CommentForm extends Component {
         
         // Attempt to post a new comment
 
-        // this.props.login(user);
+        this.props.postComment(newComment);
     }
 
 
@@ -85,9 +87,7 @@ const mapStatetoProps = (state) => {
 
 const mapDispatchtoProps = (dispatch) => {
     return {
-        // login : (user) => dispatch(login(user)),
-        // clearErrors: () => dispatch(clearErrors())
-        
+        postComment : (newComment) => dispatch(postComment(newComment)),
     }
 }
 

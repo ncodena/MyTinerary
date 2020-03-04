@@ -19,6 +19,25 @@ class Comments extends Component {
 
     };
 
+    getCommentsNumber = () => {
+        // let commentsNumber = this.props.comments.length;
+
+        // console.log(commentsNumber)
+
+        let commentsNumber = this.props.comments.length;
+
+        // if(commentsNumber != 0) {
+        //     return (
+        //         <h5>Comments</h5>
+                
+        //     )
+        // } else return commentsNumber
+
+        return (commentsNumber)
+
+        
+    }
+
     getComments = () => {
 
     console.log(this.props.comments)
@@ -55,7 +74,7 @@ class Comments extends Component {
     render() {
         return (
             <div className="commentsList">
-                <h5>Comments</h5>
+                <h5>Comments({this.getCommentsNumber()})</h5>
                 {this.getComments()}
             </div>
         )

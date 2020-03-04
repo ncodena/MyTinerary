@@ -31,7 +31,7 @@ class CommentForm extends Component {
         this.setState({[e.target.name]: e.target.value});
     };
 
-     onSubmit = async (e) => {
+    async onSubmit (e) {
 
         e.preventDefault();
 
@@ -62,7 +62,7 @@ class CommentForm extends Component {
         await this.props.postComment(newComment);
 
 
-        this.props.fetchComments(itinerary);
+        await this.props.fetchComments(itinerary);
         return
     }
 

@@ -47,7 +47,7 @@ class Comments extends Component {
                 <Card key={comment._id}>
                     <CardBody className="mainContainer">
                         <div className="userContainer">
-                            <img className="avatar" src={comment.user.img} alt="user avatar" />
+                            <img className="avatar" src={comment.user.img} alt="user avatar profile" />
                             <CardTitle className="userData"><strong>{comment.user.userName + ' '}</strong>({ comment.user.country})</CardTitle>
                         </div>
                         <div className="commentContainer">

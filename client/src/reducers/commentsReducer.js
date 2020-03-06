@@ -1,4 +1,4 @@
-import { REQUEST_COMMENTS, FETCH_COMMENTS, FAILURE_FETCHING_COMMENTS, GET_USER, CREATE_COMMENT, FAILURE_CREATE_COMMENT} from '../actions/types';
+import { REQUEST_COMMENTS, FETCH_COMMENTS, FAILURE_FETCHING_COMMENTS, GET_USER, CREATE_COMMENT, FAILURE_CREATE_COMMENT, DELETE_COMMENT} from '../actions/types';
 
 const initialState = {
     token: localStorage.getItem('token'),
@@ -51,6 +51,12 @@ export default function reducer (state = initialState, action){
                 loading: false,
                 comment: null,
                 error: action.error
+            }
+        case DELETE_COMMENT:
+            localStorage.setItem('token', action.payload.token)
+            return{
+                ...state,
+                comments: state.comments.filter(comment => comment.id !== action.payload)
             }
             default:
                 return state

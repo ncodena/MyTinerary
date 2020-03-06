@@ -100,4 +100,8 @@ export const deleteComment = comment => async(dispatch, getState) => {
         type: DELETE_COMMENT,
         payload: comment
         }))
+
+    .catch(err =>
+        dispatch(returnErrors(err.response.data, err.response.status))
+    );
 };

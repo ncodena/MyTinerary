@@ -201,5 +201,16 @@ router.post("/itinerary/comments", auth, (req, res) => {
         .then(comment => res.send("comment created", comment))
 });
 
+// @route DELETE auth/:itinerary/comments/:coment
+// @desc Remove comments from any user profile
+// @access Private
+
+
+router.delete('/itinerary/comments/:comment', auth, (req, res) => {
+    commentSchema
+    .findOne({comment: req.params.id})
+    .then(comment => comment.remove().then(comment => res.send("This comment has been successfully deleted", comment)))
+    .catch(err => res.status(404).json({success:false}))
+});
 
 module.exports = router;

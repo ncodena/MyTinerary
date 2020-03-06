@@ -207,7 +207,7 @@ router.post("/itinerary/comments", auth, (req, res) => {
 
 
 router.delete('/itinerary/comments/:comment', auth, (req, res) => {
-    commentSchema
+    Comment
     .findOne({comment: req.params.id})
     .then(comment => comment.remove().then(comment => res.send("This comment has been successfully deleted", comment)))
     .catch(err => res.status(404).json({success:false}))

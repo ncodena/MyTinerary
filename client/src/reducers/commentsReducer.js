@@ -56,7 +56,7 @@ export default function reducer (state = initialState, action){
             localStorage.setItem('token', action.payload.token)
             return{
                 ...state,
-                comments: state.comments.filter(comment => comment.id !== action.payload)
+                comments: state.comments.filter(comment => comment._id !== action.payload)
             }
             default:
                 return state

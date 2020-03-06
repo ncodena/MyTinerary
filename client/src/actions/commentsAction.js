@@ -1,4 +1,4 @@
-import { REQUEST_COMMENTS, FETCH_COMMENTS, FAILURE_FETCHING_COMMENTS, CREATE_COMMENT, FAILURE_CREATE_COMMENT } from './types';
+import { REQUEST_COMMENTS, FETCH_COMMENTS, FAILURE_FETCHING_COMMENTS, CREATE_COMMENT, FAILURE_CREATE_COMMENT, DELETE_COMMENT} from './types';
 import {returnErrors} from './errorAction';
 import axios from 'axios';
 
@@ -85,3 +85,19 @@ export const postComment = (newComment) => async(dispatch, getState) => {
             })
         })
 }
+
+// ACTION TO DELETE A COMMENT
+
+export const deleteComment = comment => async(dispatch, getState) => {
+
+    console.log("about to delete comment:", comment)
+
+    // Delete request to API
+
+    return await axios.delete(`/api/auth/itinerary/comments/${comment}`, tokenConfig(getState))
+
+    .then(comment => dispatch({
+        type: DELETE_COMMENT,
+        payload: comment
+        }))
+};

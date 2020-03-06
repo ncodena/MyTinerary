@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {fetchComments} from '../actions/commentsAction';
-import {Card, CardBody, CardTitle}from 'reactstrap' ;
+import {deleteComment} from '../actions/commentsAction';
+import {Card, CardBody, CardTitle, Button}from 'reactstrap' ;
 import '../style/Comments.css'
 
 class Comments extends Component {
@@ -12,29 +13,29 @@ class Comments extends Component {
 
     console.log(itinerary._id)
 
-        
     this.props.fetchComments(itinerary._id)
     
     console.log(this.props.comments)
 
     };
 
-    getCommentsNumber = () => {
-        // let commentsNumber = this.props.comments.length;
+    deleteComment = (_id) => {
 
-        // console.log(commentsNumber)
+        let comment = this.props.comments.map(comment => {
+            return (comment)
+        })
+
+        let id = comment.id
+
+        this.props.deleteComment(id);
+        // console.log(comment)
+    }
+
+    getCommentsNumber = () => {
 
         let commentsNumber = this.props.comments.length;
 
-        // if(commentsNumber != 0) {
-        //     return (
-        //         <h5>Comments</h5>
-                
-        //     )
-        // } else return commentsNumber
-
         return (commentsNumber)
-
         
     }
 
@@ -56,6 +57,7 @@ class Comments extends Component {
                             <small className="text-muted">Comment posted by {comment.user.userName} on {comment.date}</small>
                             </div>
                         </div>
+                        {/* <h5 onClick={this.deleteComment.bind(this)}>Delete</h5> */}
                     </CardBody>
                 </Card>
             )
@@ -89,7 +91,9 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchComments: (itinerary) => dispatch(fetchComments(itinerary))
+        fetchComments: (itinerary) => dispatch(fetchComments(itinerary)),
+        deleteComment: (comment) => dispatch(deleteComment(comment)),
+        
     }
         
 }

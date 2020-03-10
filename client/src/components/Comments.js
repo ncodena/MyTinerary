@@ -52,7 +52,7 @@ class Comments extends Component {
                             <CardTitle className="userData"><strong>{comment.user.userName + ' '}</strong>({ comment.user.country})</CardTitle>
                         </div>
                         <div className="commentContainer">
-                            {comment.body}
+                            {/* {comment.body} */}
                             <div>
                             <small className="text-muted">Comment posted by {comment.user.userName} on {comment.date}</small>
                             </div>

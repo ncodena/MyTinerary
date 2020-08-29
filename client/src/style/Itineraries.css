@@ -44,10 +44,13 @@ h6{
 }
 
 /* Carousel style */
-
-.responsive {
-    max-width: 100%;
+.carouselContainer {
+    
 }
+
+/* .responsive {
+    max-width: 100%;
+} */
 
 /* .carousel{
     position: relative;

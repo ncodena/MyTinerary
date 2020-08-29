@@ -38,7 +38,7 @@ const ActivitiesCarousel = (props) => {
                 onExited={() => setAnimating(false)}
                 key={activity._id}>
                 <div className="activityTandem">
-                    <img width="300" height="100" className='responsive'src={activity.img} alt='activity_img'/>
+                    <img className='responsive'src={activity.img} alt='activity_img'/>
                     <h5 className='activityTitle' >{activity.title}</h5>
                 </div>
         </CarouselItem>
@@ -47,16 +47,18 @@ const ActivitiesCarousel = (props) => {
     });
 
     return (
-        <Carousel
-        activeIndex={activeIndex}
-        next={next}
-        previous={previous}
-        >
-        <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex} />
-        {activitiesList}
-        <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
-        <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
-        </Carousel>
+        <div className="carouselContainer">
+            <Carousel
+            activeIndex={activeIndex}
+            next={next}
+            previous={previous}
+            >
+            <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex} />
+            {activitiesList}
+            <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
+            <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
+            </Carousel>
+        </div>
     );
 }
 

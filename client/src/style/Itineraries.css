@@ -43,6 +43,11 @@ h6{
     max-width: 100%;
 }
 
+.activitiesBanner {
+    display: flex;
+    justify-content: center;
+}
+
 /* Carousel style */
 .activitiesContainer {
     width: 100%;
@@ -60,91 +65,3 @@ h6{
     max-height: 40vh;
     min-height: 40vh;
 }
-
-/* .responsive {
-    max-width: 100%;
-} */
-
-/* .carousel{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    margin-top: 25px;
-    height: 20vh;
-
-}
-.carousel-inner {
-    width: 90%;
-    display: flex;
-    justify-content: center;
-    background-color: lightgray;
-}
-
-.carousel-item{
-    position: relative;
-    display: none;
-    max-width: 50%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    transition: transform .6s ease-in-out;
-    margin-right: 0;
-}
-
-.carousel-item active {
-    display: flex;
-    justify-content:center;
-    align-items: center;
-}
-
-.carousel-item-next{
-    display: flex;
-    justify-content: center;
-} 
-
-.carousel-item-prev{
-    display: flex;
-    justify-content: center;
-
-} 
-.carousel-item.active {
-    display: flex;
-    justify-content: center;
-}
-
-.activityTandem{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.responsive{
-    max-height: 9vh;
-    max-width: 100%;
-    height: auto;
-}
-
-.activityTitle{
-    display: flex;
-    justify-content: center;
-    padding-top: 6%;
-    align-items: center;
-    align-content: center;
-}
-.activitiesBanner{
-    display: flex;
-    justify-content: center;
-}
-.carousel-indicators {
-    position: absolute;
-    right: 0;
-    bottom: 0px;
-    left: 0;
-    z-index: 15;
-    display: flex;
-    justify-content: center;
-    padding-left: 0;
-    margin-right: 0%;
-    margin-left: 0%;
-    list-style: none;
-    top: 120px;
-} */

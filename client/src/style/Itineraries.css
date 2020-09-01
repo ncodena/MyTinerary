@@ -44,6 +44,8 @@ h6{
 }
 
 .activitiesBanner {
+    font-size: 1.85rem;
+    font-weight: bold;
     display: flex;
     justify-content: center;
 }
@@ -53,6 +55,7 @@ h6{
     width: 100%;
     display: flex;
     justify-content: center;
+    padding: 60px;
 }
 
 .carouselContainer {

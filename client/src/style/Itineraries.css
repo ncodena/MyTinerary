@@ -44,8 +44,21 @@ h6{
 }
 
 /* Carousel style */
+.activitiesContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .carouselContainer {
-    
+    width: 80%;
+}
+
+.activityImage {
+    max-width: 100%;
+    min-width: 80%;
+    max-height: 40vh;
+    min-height: 40vh;
 }
 
 /* .responsive {

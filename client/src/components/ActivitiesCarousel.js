@@ -42,24 +42,26 @@ const ActivitiesCarousel = (props) => {
             onExited={() => setAnimating(false)}
             key={activity._id}
             className='responsive'>
-            <img src={activity.img} alt={activity.title} className='responsive'/>
+            <img src={activity.img} alt={activity.title} className='activityImage'/>
             <CarouselCaption captionText={activity.title} captionHeader={activity.title} className='responsive' />
         </CarouselItem>
         );
     });
 
   return (
-    <div className="carouselContainer">
-      <Carousel
-        activeIndex={activeIndex}
-        next={next}
-        previous={previous}
-      >
-        <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex} />
-        {activities}
-        <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
-        <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
-      </Carousel>
+    <div className="activitiesContainer">
+      <div className="carouselContainer">
+        <Carousel
+          activeIndex={activeIndex}
+          next={next}
+          previous={previous}
+        >
+          <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex} />
+          {activities}
+          <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
+          <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
+        </Carousel>
+      </div>
     </div>
   );
 }

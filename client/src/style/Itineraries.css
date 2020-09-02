@@ -43,6 +43,19 @@ h6{
     max-width: 100%;
 }
 
+.MuiTypography-displayBlock {
+    display: block;
+    text-align: center;
+}
+
+span.MuiTypography-root.MuiCardHeader-title{
+    font-size: 1.30rem;
+}
+
+/* div.MuiCardMedia-root.imageContainer {
+    padding: 40px;
+}  */
+
 .activitiesBanner {
     font-size: 1.85rem;
     font-weight: bold;
@@ -68,3 +81,10 @@ h6{
     max-height: 40vh;
     min-height: 40vh;
 }
+
+@media screen and (max-width: 700px) {
+    span.MuiTypography-root.MuiCardHeader-title{
+    font-size: 0.875rem;
+
+    }
+  }

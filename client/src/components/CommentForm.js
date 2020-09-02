@@ -69,15 +69,13 @@ class CommentForm extends Component {
 
     render() {
         return (
-            <div>
                 <Form onSubmit={(e) => this.onSubmit(e)}>
                     <FormGroup className='formContainer'>
-                        <Label for="exampleText">Do you want to share your experience?</Label>
+                        <Label for="exampleText" className="commentsPreview">Do you want to share your experience?</Label>
                         <Input type="textarea" name="body" id="body" placeholder="Your text" onChange={this.onChange}/>
                         <Button color="info" size="lg">Submit</Button>
                     </FormGroup>    
                 </Form>      
-            </div>
         )
     }
 }

@@ -70,3 +70,13 @@ Form {
     justify-content: center;
     height: 30vh;
 }
+
+@media screen and (max-width: 700px) {
+    .commentsPreview {
+        font-size: 1.05rem;
+    }
+    .formContainer {
+        width: 76%;
+    }
+
+}

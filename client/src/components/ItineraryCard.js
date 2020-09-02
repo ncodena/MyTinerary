@@ -117,7 +117,7 @@ export default function ItineraryCard(props) {
       </CardContent>
       <CardActions disableSpacing>
         <Typography variant="subtitle2" color="textSecondary" component="h6" className="plusInfo">
-        Rating: {' ' + itinerary.rating + ' '}|Price:{' ' + itinerary.price+ ' '}
+        Rating: {' ' + itinerary.rating + ' '}| Price:{' ' + itinerary.price+ ' '}
         </Typography>
       </CardActions>
       <Collapse in={isOpen} timeout="auto" unmountOnExit>
@@ -128,10 +128,10 @@ export default function ItineraryCard(props) {
         </CardContent>
       </Collapse>
       <div className="links">
-        <Link to={'/'}>Back to Cities | {''}</Link>
+        <Link to={'/'}>Back to Cities</Link>
         <div onClick={handleExpandClick} aria-label="show more"> 
-          {isOpen ? ' Read Less': ' Read More'}
-        </div>
+          {isOpen ?  '  Read Less':  '  Read More'}
+          </div>
       </div>
     </Card>
     </div>

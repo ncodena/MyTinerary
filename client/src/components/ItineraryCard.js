@@ -64,7 +64,7 @@ export default function ItineraryCard(props) {
     if(setOpen) {
           return (
             <Fragment>
-              <h3 className="activitiesBanner">Available activities</h3>
+              <h3 className="activitiesBanner">Activities</h3>
               {/* <ActivitiesCarousel itinerary={itinerary} key={itinerary._id}/> */}
               <ActivitiesCarousel itinerary={itinerary} key={itinerary._id}/>
             </Fragment>

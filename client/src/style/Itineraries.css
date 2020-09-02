@@ -14,7 +14,8 @@ a {
 
 .links{
     display: flex;
-    margin: 12px;
+    padding: 16px;
+    justify-content: space-evenly;
 }
 
 .description{
@@ -67,6 +68,10 @@ div.MuiCardActions-root {
     padding: 16px;
 }
 
+.d-md-block h3 {
+    background: rgba(255,255,255, 0.5);
+}
+
 /* Carousel style */
 .activitiesContainer {
     width: 100%;
@@ -99,8 +104,14 @@ div.MuiCardActions-root {
         display: block!important;
     }
 
+    .d-md-block h3 {
+        font-size: 1.15rem;
+    }
+
     .activitiesBanner {
         font-size: 1.35rem;
+        color: #17a2b8;
+    
     }
 
     .activitiesContainer {

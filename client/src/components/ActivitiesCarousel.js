@@ -43,7 +43,7 @@ const ActivitiesCarousel = (props) => {
             key={activity._id}
             className='responsive'>
             <img src={activity.img} alt={activity.title} className='activityImage'/>
-            <CarouselCaption captionText={activity.title} captionHeader={activity.title} className='responsive' />
+            <CarouselCaption  captionHeader={activity.title} className='responsive' />
         </CarouselItem>
         );
     });

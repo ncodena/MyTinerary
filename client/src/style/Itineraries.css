@@ -1,6 +1,6 @@
 
 a {
-    color: black;
+    color: #17a2b8;
     text-decoration: none; /* no underline */
   }
 
@@ -22,7 +22,8 @@ div.MuiCardActions-root {
     font-size: 1.15rem;
 }
 
-div.MuiCardActions-root .MuiTypography-colorTextSecondary {
+
+div.MuiCardActions-root .MuiTypography-colorTextSecondary p {
     font-size: 1.15rem;
 }
 
@@ -34,9 +35,14 @@ div.MuiCardActions-root .MuiTypography-colorTextSecondary {
     font-size: 1.15rem;
 }
 
+.links a{
+    padding: 10px;
+}
+
 .expandButton {
     background: white;
     animation: changingColor 6s infinite;
+    padding: 10px;
 }
 
 @keyframes changingColor {
@@ -50,9 +56,6 @@ div.MuiCardActions-root .MuiTypography-colorTextSecondary {
     text-align:justify;
 }
 
-h6{
-    margin: 6px;
-}
 
 .unit{
     padding: 0px 15px 10px 15px;
@@ -78,10 +81,15 @@ h6{
 }
 
 span.MuiTypography-root.MuiCardHeader-title{
-    font-size: 1.30rem;
+    font-size: 1.8rem;
 }
 
 div.MuiCardContent-root > p {
+    font-size: 1.15rem;
+    padding: 20px;
+}
+
+div.MuiCardActions-root > h6 {
     font-size: 1.15rem;
 }
 

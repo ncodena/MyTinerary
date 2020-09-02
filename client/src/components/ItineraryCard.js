@@ -111,13 +111,13 @@ export default function ItineraryCard(props) {
       </CardContent>
       <CardActions disableSpacing>
         <Typography variant="subtitle2" color="textSecondary" component="h6" className="plusInfo">
-        Rating: {' ' + itinerary.rating}
+        <strong>Rating:</strong>{' ' + itinerary.rating}
         </Typography>
         <Typography variant="subtitle2" color="textSecondary" component="h6" className="plusInfo">
-        Duration: {' ' + itinerary.duration}
+        <strong>Duration:</strong>{' ' + itinerary.duration}
         </Typography>
         <Typography variant="subtitle2" color="textSecondary" component="h6" className="plusInfo">
-        Price:{' ' + itinerary.price}
+        <strong>Price:</strong>{' ' + itinerary.price}
         </Typography>
       </CardActions>
       <Collapse in={isOpen} timeout="auto" unmountOnExit>

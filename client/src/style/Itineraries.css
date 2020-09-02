@@ -19,6 +19,11 @@ div.MuiCardActions-root {
     padding: 16px;
     display: flex;
     flex-direction: column;
+    font-size: 1.15rem;
+}
+
+div.MuiCardActions-root .MuiTypography-colorTextSecondary {
+    font-size: 1.15rem;
 }
 
 .links{
@@ -26,6 +31,7 @@ div.MuiCardActions-root {
     padding: 16px;
     justify-content: space-evenly;
     color: #17a2b8;
+    font-size: 1.15rem;
 }
 
 .description{
@@ -118,10 +124,17 @@ div.MuiCardActions-root {
         font-size: 1.15rem;
     }
 
+    div.MuiCardActions-root .MuiTypography-colorTextSecondary {
+        font-size: 0.875rem;
+    }
+
     .activitiesBanner {
         font-size: 1.35rem;
         color: #17a2b8;
-    
+    }
+
+    .links {
+        font-size: 0.95rem;
     }
 
     .activitiesContainer {

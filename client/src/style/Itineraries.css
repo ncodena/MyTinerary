@@ -34,6 +34,18 @@ div.MuiCardActions-root .MuiTypography-colorTextSecondary {
     font-size: 1.15rem;
 }
 
+.expandButton {
+    background: white;
+    animation: changingColor 6s infinite;
+}
+
+@keyframes changingColor {
+    from {background-color: white;}
+    to {background-color: #17a2b8;}
+    from {color: #17a2b8;}
+    to {color: white;}
+}
+
 .description{
     text-align:justify;
 }

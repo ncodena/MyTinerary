@@ -129,7 +129,7 @@ export default function ItineraryCard(props) {
       </Collapse>
       <div className="links">
         <Link to={'/'}>Back to Cities</Link>
-        <div onClick={handleExpandClick} aria-label="show more"> 
+        <div onClick={handleExpandClick} aria-label="show more" className="expandButton"> 
           {isOpen ?  '  Read Less':  '  Read More'}
           </div>
       </div>

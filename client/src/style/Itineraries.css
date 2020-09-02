@@ -11,6 +11,15 @@ a {
     margin-top: 8%;
     width: 100%;
 }
+span.MuiIconButton-label > svg {
+    fill: #17a2b8;
+}
+
+div.MuiCardActions-root {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+}
 
 .links{
     display: flex;

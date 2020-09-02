@@ -94,18 +94,12 @@ export default function ItineraryCard(props) {
     <div className="unit">
     <Card className="ItineraryCard">
       <CardHeader
-        avatar={
-          <IconButton aria-label="explore">
-            <ExploreIcon fontSize='large'/>
-          </IconButton>
-        }
         action={
           <IconButton aria-label="add to favorites">
             <FavoriteIcon />
           </IconButton>
         }
         title={itinerary.title}
-        subheader={itinerary.duration}
       />
       <CardMedia className="imageContainer" title="itinerary_image">
         <img src={itinerary.img} alt='itinerary' className="itineraryImage"></img>
@@ -117,7 +111,13 @@ export default function ItineraryCard(props) {
       </CardContent>
       <CardActions disableSpacing>
         <Typography variant="subtitle2" color="textSecondary" component="h6" className="plusInfo">
-        Rating: {' ' + itinerary.rating + ' '}| Price:{' ' + itinerary.price+ ' '}
+        Rating: {' ' + itinerary.rating}
+        </Typography>
+        <Typography variant="subtitle2" color="textSecondary" component="h6" className="plusInfo">
+        Duration: {' ' + itinerary.duration}
+        </Typography>
+        <Typography variant="subtitle2" color="textSecondary" component="h6" className="plusInfo">
+        Price:{' ' + itinerary.price}
         </Typography>
       </CardActions>
       <Collapse in={isOpen} timeout="auto" unmountOnExit>

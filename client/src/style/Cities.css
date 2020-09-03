@@ -77,3 +77,12 @@ body{
     flex-wrap: wrap;
     justify-content: center;
 }
+
+@media screen and (max-width: 700px) {
+    .cardContainer{
+        padding-top: 0%;
+    }
+
+    
+
+}

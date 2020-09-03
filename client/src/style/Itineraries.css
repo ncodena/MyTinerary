@@ -124,7 +124,7 @@ div.MuiCardActions-root {
     max-width: 100%;
     min-width: 80%;
     max-height: 40vh;
-    min-height: 40vh;
+    min-height: 30vh;
 }
 
 @media screen and (max-width: 700px) {
@@ -141,7 +141,7 @@ div.MuiCardActions-root {
     }
 
     .d-md-block h3 {
-        font-size: 1.15rem;
+        font-size: 1.05rem;
     }
 
     div.MuiCardActions-root .MuiTypography-colorTextSecondary {
@@ -162,14 +162,14 @@ div.MuiCardActions-root {
     }
 
     .carouselContainer {
-        width: 90%;
+        width: 100%;
     }
 
     .activityImage {
         max-width: 100%;
         min-width: 80%;
-        max-height: 40vh;
-        min-height: 35vh;
+        max-height: 38vh;
+        min-height: 25vh;
     }
 
     div.activitiesContainer > h3 {

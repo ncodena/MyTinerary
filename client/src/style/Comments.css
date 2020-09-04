@@ -65,7 +65,7 @@
     width: 75%;
 }
 
-Form {
+.commentsForm {
     display: flex;
     justify-content: center;
     height: 30vh;

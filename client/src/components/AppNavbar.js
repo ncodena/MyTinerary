@@ -37,15 +37,15 @@ class AppNavbar extends Component {
             <Fragment>
                 <NavItem>
                     <div className="userData">
-                        <div className="navbar-text mr-3">
+                        <div className="navbar-text">
                             <strong>{user ? <strong>{user.userName}</strong>: ''}</strong>
                         </div>
-                        <div className="navbar-text mr-3 userContainer">
+                        <div className="navbar-text userContainer">
                             <div>{user ? <img src={user.img} alt='user' className="profileImg"/> : ''}</div>  
                         </div>
                     </div>
                 </NavItem>
-                <NavItem>
+                <NavItem className="nav-link">
                     <Logout/>
                 </NavItem>
             </Fragment>

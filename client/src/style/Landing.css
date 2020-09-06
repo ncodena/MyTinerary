@@ -55,17 +55,51 @@ h2 {
 .navCol{
     background-color: azure;
 }
+.navbar-brand{
+    font-size: 2rem;
+}
+
+.nav-item {
+    font-size: 1.6rem;
+}
+
 
 .userData{
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 154px;
 }
 
-.userContainer{
-    width: 10%;
-}
 
 .profileImg {
     border-radius: 50%;
     max-width: 50px;
+}
+
+
+@media screen and (max-width: 700px) {
+
+    .navbar-brand{
+        font-size: 1.25rem;
+    }
+    
+    .userData {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-link {
+        display: flex;
+        justify-content: center;
+    }
+
+    .nav-item {
+        font-size: 1rem;
+    }
+
+    
+
 }
